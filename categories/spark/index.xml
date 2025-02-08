@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spark - 分类 - Wang Blog</title>
+    <link>https://estherwangyx.github.io/categories/spark/</link>
+    <description>Wang Blog</description>
+    <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
+    <language>en-us</language>
+    <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
+    <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
+    <lastBuildDate>Sat, 15 Jul 2023 05:09:47 +0800</lastBuildDate>
+    <atom:link href="https://estherwangyx.github.io/categories/spark/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hive与Spark的关系</title>
+      <link>https://estherwangyx.github.io/posts/f9086ac/</link>
+      <pubDate>Sat, 15 Jul 2023 05:09:47 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/posts/f9086ac/</guid>
+      <category domain="https://estherwangyx.github.io/categories/hive/">Hive</category>
+      <category domain="https://estherwangyx.github.io/categories/spark/">Spark</category>
+      <description>从概念，区别，要素和表现等几个方面对Hive和Spark的关系进行分析</description>
+    </item>
+  </channel>
+</rss>

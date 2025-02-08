@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GIS - 分类 - Wang Blog</title>
+    <link>https://estherwangyx.github.io/categories/gis/</link>
+    <description>Wang Blog</description>
+    <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
+    <language>en-us</language>
+    <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
+    <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
+    <lastBuildDate>Wed, 20 May 2020 06:10:32 +0800</lastBuildDate>
+    <atom:link href="https://estherwangyx.github.io/categories/gis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>利用mapbox共享地图</title>
+      <link>https://estherwangyx.github.io/posts/mapbox_chaoyang/4e7f5b5/</link>
+      <pubDate>Wed, 20 May 2020 06:10:32 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/posts/mapbox_chaoyang/4e7f5b5/</guid>
+      <category domain="https://estherwangyx.github.io/categories/gis/">GIS</category>
+      <description>因为疫情原因，为了能方便将成果展示并交流。使用Mapbox制作线上地图并分享</description>
+    </item>
+    <item>
+      <title>使用模型构建器批量提取栅格</title>
+      <link>https://estherwangyx.github.io/posts/modelbuilder_extract_raster/6a13019/</link>
+      <pubDate>Tue, 21 Apr 2020 05:38:45 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/posts/modelbuilder_extract_raster/6a13019/</guid>
+      <category domain="https://estherwangyx.github.io/categories/gis/">GIS</category>
+      <description>使用Arcgis中的模型构建器工具批量提取栅格</description>
+    </item>
+  </channel>
+</rss>

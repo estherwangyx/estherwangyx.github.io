@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags - 标签 - Wang Blog</title>
+    <link>https://estherwangyx.github.io/tags/</link>
+    <description>Wang Blog</description>
+    <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
+    <language>en-us</language>
+    <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
+    <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
+    <lastBuildDate>Sat, 15 Jul 2023 05:09:47 +0800</lastBuildDate>
+    <atom:link href="https://estherwangyx.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>大数据</title>
+      <link>https://estherwangyx.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</link>
+      <pubDate>Sat, 15 Jul 2023 05:09:47 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</guid>
+      <description>大数据</description>
+    </item>
+    <item>
+      <title>可视化</title>
+      <link>https://estherwangyx.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
+      <pubDate>Wed, 15 Mar 2023 04:56:26 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
+      <description>可视化</description>
+    </item>
+    <item>
+      <title>语法</title>
+      <link>https://estherwangyx.github.io/tags/%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Sat, 15 Oct 2022 01:18:46 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/tags/%E8%AF%AD%E6%B3%95/</guid>
+      <description>语法</description>
+    </item>
+    <item>
+      <title>Opencv</title>
+      <link>https://estherwangyx.github.io/tags/opencv/</link>
+      <pubDate>Wed, 20 Jul 2022 18:15:34 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/tags/opencv/</guid>
+      <description>Opencv</description>
+    </item>
+    <item>
+      <title>R</title>
+      <link>https://estherwangyx.github.io/tags/r/</link>
+      <pubDate>Sun, 21 Jun 2020 01:54:49 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/tags/r/</guid>
+      <description>R</description>
+    </item>
+    <item>
+      <title>安装</title>
+      <link>https://estherwangyx.github.io/tags/%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Sun, 21 Jun 2020 01:54:49 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/tags/%E5%AE%89%E8%A3%85/</guid>
+      <description>安装</description>
+    </item>
+    <item>
+      <title>Mapbox</title>
+      <link>https://estherwangyx.github.io/tags/mapbox/</link>
+      <pubDate>Wed, 20 May 2020 06:10:32 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/tags/mapbox/</guid>
+      <description>Mapbox</description>
+    </item>
+    <item>
+      <title>Webgis</title>
+      <link>https://estherwangyx.github.io/tags/webgis/</link>
+      <pubDate>Wed, 20 May 2020 06:10:32 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/tags/webgis/</guid>
+      <description>Webgis</description>
+    </item>
+    <item>
+      <title>Arcgis</title>
+      <link>https://estherwangyx.github.io/tags/arcgis/</link>
+      <pubDate>Tue, 21 Apr 2020 05:38:45 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/tags/arcgis/</guid>
+      <description>Arcgis</description>
+    </item>
+  </channel>
+</rss>

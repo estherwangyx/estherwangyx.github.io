@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en-us">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Hive与Spark的关系 - Wang Blog</title><meta name="author" content="wangyx">
+<meta name="description" content="从概念，区别，要素和表现等几个方面对Hive和Spark的关系进行分析"><meta name="keywords" content='大数据'>
+  <meta itemprop="name" content="Hive与Spark的关系">
+  <meta itemprop="description" content="从概念，区别，要素和表现等几个方面对Hive和Spark的关系进行分析">
+  <meta itemprop="datePublished" content="2023-07-15T05:09:47+08:00">
+  <meta itemprop="dateModified" content="2023-07-15T05:09:47+08:00">
+  <meta itemprop="wordCount" content="57">
+  <meta itemprop="keywords" content="大数据"><meta property="og:url" content="https://estherwangyx.github.io/posts/f9086ac/">
+  <meta property="og:site_name" content="Wang Blog">
+  <meta property="og:title" content="Hive与Spark的关系">
+  <meta property="og:description" content="从概念，区别，要素和表现等几个方面对Hive和Spark的关系进行分析">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-07-15T05:09:47+08:00">
+    <meta property="article:modified_time" content="2023-07-15T05:09:47+08:00">
+    <meta property="article:tag" content="大数据">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Hive与Spark的关系">
+  <meta name="twitter:description" content="从概念，区别，要素和表现等几个方面对Hive和Spark的关系进行分析">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://estherwangyx.github.io/posts/f9086ac/" title="Hive与Spark的关系 - Wang Blog" /><link rel="prev" type="text/html" href="https://estherwangyx.github.io/posts/387d48e/" title="Python批量输出地图，且一直保持底图可见" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Hive与Spark的关系",
+    "inLanguage": "en-us",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/estherwangyx.github.io\/posts\/f9086ac\/"
+    },"genre": "posts","keywords": "大数据","wordcount":  57 ,
+    "url": "https:\/\/estherwangyx.github.io\/posts\/f9086ac\/","datePublished": "2023-07-15T05:09:47+08:00","dateModified": "2023-07-15T05:09:47+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "wangyx"
+      },"description": "从概念，区别，要素和表现等几个方面对Hive和Spark的关系进行分析"
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Wang Blog"><span class="header-title-text">Esther Wang&#39;s Blog</span></a><span class="typeit header-subtitle"><template></template></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a class="menu-link" href="/archives/"><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 文章</a></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-circle-info fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Wang Blog"><span class="header-title-text">Esther Wang&#39;s Blog</span></a><span class="typeit header-subtitle"><template></template></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="menu-item"><a class="menu-link" href="/archives/"><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 文章</a></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-circle-info fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Hive与Spark的关系</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      wangyx</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/hive/" class="post-category" title="分类 - Hive"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Hive</a>&ensp;<a href="/categories/spark/" class="post-category" title="分类 - Spark"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Spark</a></span></div><div class="post-meta-line"><span title="发布于 2023-07-15 05:09:47"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2023-07-15">2023-07-15</time></span>&nbsp;<span title="57 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 100 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 1 分钟</span>&nbsp;</div>
+    </div><div class="content" id="content"><table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Spark</th>
+          <th>Hive</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>概念</td>
+          <td>Spark是一种只读的集群算法，叫做弹性数据分布数据集RDD。开发RDD是由于Mapreduce计算的局限性。RDD在计算存储在内存的数据上工作的更快，适合实时数据和分析</td>
+          <td>Hadoop是一种数据处理技术，它通过MapReduce模型来利用计算机集群来进行大数据计算。Hadoo有容错性，硬件错误可以调整。Hadoop在集群中将数据拆分，在多个节点并行处理数据。</td>
+      </tr>
+      <tr>
+          <td>主要区别</td>
+          <td>Spark是实时数据分析，适合流媒体等数据。Spark的交互模式允许在运行过程中进行控制。</td>
+          <td>Haddop是一种处理引擎能够处理无法存储的大数据。因为Hive的发展，Hadoop是使用SQL运行分析的最佳选择。（Hive通过提供一个SQL接口来对Hadoop集群中的数据进行结构化查询和非结构化数据。从而将编写Hadoop作业来查询相同数据集所需的复杂性抽象出来，从而与Hadoop集成。）</td>
+      </tr>
+      <tr>
+          <td>生态方面</td>
+          <td>Spark使用基于RDD，适合机器学习和图形处理等迭代算法。Spark可使用HDFS，也支持其他存储系统.Spark Streaming 组件通过将数据流分成小批来提供实时流处理。与 Hadoop 相比，Spark 确实拥有更多的集群管理配置。Spark 使用 RDD 在发生故障时重建数据。</td>
+          <td>Hadoop使用Mapreduce范式，具有映射来过滤和排序数据，以及缩减阶段来聚合和汇总分析，Mapreduce基于磁盘。Hadoop自带分布式存储系统.Hadoop 具有数据块复制功能，可在节点发生故障时确保数据可访问性.</td>
+      </tr>
+      <tr>
+          <td>要素</td>
+          <td>Spark 包括用于执行与机器学习、AI 和图形引擎相关的复杂分析的库。Spark 提供了作业当前运行位置的图形视图，具有更直观的作业调度程序，并包含历史服务器，这是一个用于查看作业运行的 Web 界面。</td>
+          <td>Hadoop 拥有自己的分布式文件系统、集群管理器和数据处理。此外，它还提供资源分配和作业调度以及容错、灵活性和易用性。</td>
+      </tr>
+      <tr>
+          <td>表现和耗费比较</td>
+          <td>Spark 的基准测试显示其速度比 Hadoop 快 100 倍。对于内存需求，Spark 的成本更高。</td>
+          <td>在使用 MapReduce 处理数据时，Hadoop 会频繁访问磁盘，这会导致作业运行速度变慢。Hadoop 混合使用不同规格（例如 CPU、RAM 和磁盘）的节点来处理数据集。</td>
+      </tr>
+      <tr>
+          <td>工具</td>
+          <td>Spark不需要额外工具，对开发人员更友好并易于使用。</td>
+          <td>Hadoop需要额外的机器学习和流媒体工具。</td>
+      </tr>
+      <tr>
+          <td>简易程度</td>
+          <td>Spark能使用操作符提取出细节</td>
+          <td>Hadoop的低级APIs比较复杂</td>
+      </tr>
+      <tr>
+          <td>使用情况</td>
+          <td>Spark非常适合用来处理实时和非结构化数据，例如物联网，传感器和金融系统。Spark支持多种语言，如Java、Python、Scala和R。</td>
+          <td>Hadoop非常适合并行处理大量不同的数据集。Hadoop中没有数据类型和数量限制；它可以与其他分析工具例如R, Python, HBase很好的结合；Hadoop是Cloudera数据平台的基础。</td>
+      </tr>
+      <tr>
+          <td>一起使用</td>
+          <td>结合使用Hadoop和Spark是构建强大、灵活的大数据架构的好方法，典型的用例是大规模的ETL管道、数据湖和分析以及机器学习。Hadoop通过HDFS的可扩展存储可以用于存储大型数据集，而Spark可以执行分布式数据处理和分析。Hadoop可以用于大型且长时间运行的批处理过程，Spark可以从HDFS读取数据并执行复杂的转换、机器学习或交互式SQL查询。</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2023-07-15 05:09:47">更新于 2023-07-15&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="https://estherwangyx.github.io/posts/f9086ac/" data-title="Hive与Spark的关系" data-hashtags="大数据"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://estherwangyx.github.io/posts/f9086ac/" data-hashtag="大数据"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://estherwangyx.github.io/posts/f9086ac/" data-title="Hive与Spark的关系"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="post-tag" title="标签 - 大数据">大数据</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/posts/387d48e/" class="post-nav-item" rel="prev" title="Python批量输出地图，且一直保持底图可见"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>Python批量输出地图，且一直保持底图可见</a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.142.0"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.17-8b402129"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2020 - 2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">wangyx</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/typeit/index.umd.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"typeit":{"cursorChar":" ","cursorSpeed":1000,"duration":-1,"loop":false,"speed":100},"version":"v0.3.17-8b402129"};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>参考 - 标签 - Wang Blog</title>
+    <link>http://localhost:1313/tags/%E5%8F%82%E8%80%83/</link>
+    <description>Wang Blog</description>
+    <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
+    <language>en-us</language>
+    <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
+    <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
+    <lastBuildDate>Wed, 28 Sep 2022 18:31:15 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E5%8F%82%E8%80%83/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PostGIS语法汇总（二）</title>
+      <link>http://localhost:1313/posts/f59f2ae/</link>
+      <pubDate>Wed, 28 Sep 2022 18:31:15 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>http://localhost:1313/posts/f59f2ae/</guid>
+      <category domain="http://localhost:1313/categories/postgis/">PostGIS</category>
+      <description>空间连接，空间关系，空间索引</description>
+    </item>
+  </channel>
+</rss>

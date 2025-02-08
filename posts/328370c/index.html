@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en-us">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>PostGIS语法汇总（一） - Wang Blog</title><meta name="author" content="wangyx">
+<meta name="description" content="基本语法，几何图形，几何输入与输出，文本转换"><meta name="keywords" content='语法'>
+  <meta itemprop="name" content="PostGIS语法汇总（一）">
+  <meta itemprop="description" content="基本语法，几何图形，几何输入与输出，文本转换">
+  <meta itemprop="datePublished" content="2022-09-27T15:36:18+08:00">
+  <meta itemprop="dateModified" content="2022-09-27T15:36:18+08:00">
+  <meta itemprop="wordCount" content="403">
+  <meta itemprop="keywords" content="语法"><meta property="og:url" content="https://estherwangyx.github.io/posts/328370c/">
+  <meta property="og:site_name" content="Wang Blog">
+  <meta property="og:title" content="PostGIS语法汇总（一）">
+  <meta property="og:description" content="基本语法，几何图形，几何输入与输出，文本转换">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2022-09-27T15:36:18+08:00">
+    <meta property="article:modified_time" content="2022-09-27T15:36:18+08:00">
+    <meta property="article:tag" content="语法">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="PostGIS语法汇总（一）">
+  <meta name="twitter:description" content="基本语法，几何图形，几何输入与输出，文本转换">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://estherwangyx.github.io/posts/328370c/" title="PostGIS语法汇总（一） - Wang Blog" /><link rel="prev" type="text/html" href="https://estherwangyx.github.io/posts/street_green/e296f9d/" title="城市绿化率分析" /><link rel="next" type="text/html" href="https://estherwangyx.github.io/posts/f59f2ae/" title="PostGIS语法汇总（二）" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "PostGIS语法汇总（一）",
+    "inLanguage": "en-us",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/estherwangyx.github.io\/posts\/328370c\/"
+    },"genre": "posts","keywords": "语法","wordcount":  403 ,
+    "url": "https:\/\/estherwangyx.github.io\/posts\/328370c\/","datePublished": "2022-09-27T15:36:18+08:00","dateModified": "2022-09-27T15:36:18+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "wangyx"
+      },"description": "基本语法，几何图形，几何输入与输出，文本转换"
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Wang Blog"><span class="header-title-text">Esther Wang&#39;s Blog</span></a><span class="typeit header-subtitle"><template></template></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a class="menu-link" href="/archives/"><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 文章</a></li><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-circle-info fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Wang Blog"><span class="header-title-text">Esther Wang&#39;s Blog</span></a><span class="typeit header-subtitle"><template></template></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="menu-item"><a class="menu-link" href="/archives/"><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 文章</a></li><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-folder-tree fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-circle-info fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>PostGIS语法汇总（一）</span>
+      </h1><p class="single-subtitle animate__animated animate__fadeIn">基本语法，几何图形，几何输入与输出，文本转换</p></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      wangyx</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/postgis/" class="post-category" title="分类 - PostGIS"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> PostGIS</a></span></div><div class="post-meta-line"><span title="发布于 2022-09-27 15:36:18"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2022-09-27">2022-09-27</time></span>&nbsp;<span title="403 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 500 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1基本查询语句">1.基本查询语句</a>
+      <ul>
+        <li><a href="#2几何图形">2.几何图形</a></li>
+        <li><a href="#3元数据表">3.元数据表</a></li>
+        <li><a href="#4读取几何信息">4.读取几何信息</a></li>
+        <li><a href="#5点">5.点</a></li>
+        <li><a href="#6线串">6.线串</a></li>
+        <li><a href="#7多边形">7.多边形</a></li>
+        <li><a href="#8数据表中有多少个多边形为空心岛">8.数据表中有多少个多边形为空心岛</a></li>
+        <li><a href="#9图形集合">9.图形集合</a></li>
+        <li><a href="#10几何输入与输出">10.几何输入与输出</a></li>
+        <li><a href="#11从文本转换">11.从文本转换</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><h2 id="1基本查询语句" class="heading-element"><span>1.基本查询语句</span>
+  <a href="#1%e5%9f%ba%e6%9c%ac%e6%9f%a5%e8%af%a2%e8%af%ad%e5%8f%a5" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><div class="details admonition note open disabled">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-pencil-alt" aria-hidden="true"></i>基本查询语句</div>
+  <div class="details-content">
+    <div class="admonition-content"><p>SELECT <br>
+INSERT <br>
+UPDATE <br>
+DELETE <br>
+GROUP BY <br>
+ORDER BY length DESC <br>
+avg()，stddev()，sum()，count()</p></div>
+  </div>
+</div><div class="highlight" data-open="false"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#960050;background-color:#1e0010">列</span> <span style="color:#66d9ef">FROM</span> <span style="color:#960050;background-color:#1e0010">表格</span> <span style="color:#66d9ef">WHERE</span> <span style="color:#960050;background-color:#1e0010">条件</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--char_length(string)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">char_length</span>(name)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> nyc_neighborhoods
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> boroname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Brooklyn&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--聚合函数 平均值的avg()函数和求标准差的stddev()，sum()返回一个数值列的和count()返回一个列的记录数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">avg</span>(<span style="color:#66d9ef">char_length</span>(name)), stddev(<span style="color:#66d9ef">char_length</span>(name))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> nyc_neighborhoods
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> boroname <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Brooklyn&#39;</span>;
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">--GROUP BY 分组聚合分析
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> boroname, <span style="color:#66d9ef">avg</span>(<span style="color:#66d9ef">char_length</span>(name)), stddev(<span style="color:#66d9ef">char_length</span>(name))
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> nyc_neighborhoods
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> boroname;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--！！！！SELECT boroname与GROUP BY boroname 需要一致
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--百分比
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span>
+</span></span><span style="display:flex;"><span>  boroname,
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">100</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">Sum</span>(popn_white)<span style="color:#f92672">/</span><span style="color:#66d9ef">Sum</span>(popn_total) <span style="color:#66d9ef">AS</span> white_pct
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> nyc_census_blocks
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">GROUP</span> <span style="color:#66d9ef">BY</span> boroname;</span></span></code></pre></div><h3 id="2几何图形" class="heading-element"><span>2.几何图形</span>
+  <a href="#2%e5%87%a0%e4%bd%95%e5%9b%be%e5%bd%a2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="details admonition note open disabled">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-pencil-alt" aria-hidden="true"></i>几何图形</div>
+  <div class="details-content">
+    <div class="admonition-content"><p>INSERT INTO geometries VALUES <br>
+POINT <br>
+LINESTRING <br>
+POLYGON <br>
+POLYGON with a hole 空心岛 <br>
+GEOMETRYCOLLECTION 复合图形</p></div>
+  </div>
+</div><div class="highlight" data-open="false"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> geometries (name varchar, geom geometry);  <span style="color:#75715e">--(字段名称 字段类型，字段名称 字段类型)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">INSERT</span> <span style="color:#66d9ef">INTO</span> geometries <span style="color:#66d9ef">VALUES</span>
+</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#39;Point&#39;</span>, <span style="color:#e6db74">&#39;POINT(0 0)&#39;</span>),
+</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#39;Linestring&#39;</span>, <span style="color:#e6db74">&#39;LINESTRING(0 0, 1 1, 2 1, 2 2)&#39;</span>),
+</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#39;Polygon&#39;</span>, <span style="color:#e6db74">&#39;POLYGON((0 0, 1 0, 1 1, 0 1, 0 0))&#39;</span>),
+</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#39;PolygonWithHole&#39;</span>, <span style="color:#e6db74">&#39;POLYGON((0 0, 10 0, 10 10, 0 10, 0 0),(1 1, 1 2, 2 2, 2 1, 1 1))&#39;</span>),
+</span></span><span style="display:flex;"><span>  (<span style="color:#e6db74">&#39;Collection&#39;</span>, <span style="color:#e6db74">&#39;GEOMETRYCOLLECTION(POINT(2 0),POLYGON((0 0, 1 0, 1 1, 0 1, 0 0)))&#39;</span>); 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> name, ST_AsText(geom) <span style="color:#66d9ef">FROM</span> geometries;</span></span></code></pre></div><h3 id="3元数据表" class="heading-element"><span>3.元数据表</span>
+  <a href="#3%e5%85%83%e6%95%b0%e6%8d%ae%e8%a1%a8" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="details admonition note open disabled">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-pencil-alt" aria-hidden="true"></i>元数据表</div>
+  <div class="details-content">
+    <div class="admonition-content"><p>spatial_ref_sys <br>
+geometry_columns</p></div>
+  </div>
+</div><div class="highlight" data-open="false"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> geometry_columns;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> UpdateGeometrySRID(<span style="color:#e6db74">&#39;nyc_neighborhoods&#39;</span>,<span style="color:#e6db74">&#39;geom&#39;</span>,<span style="color:#ae81ff">26918</span>);</span></span></code></pre></div><h3 id="4读取几何信息" class="heading-element"><span>4.读取几何信息</span>
+  <a href="#4%e8%af%bb%e5%8f%96%e5%87%a0%e4%bd%95%e4%bf%a1%e6%81%af" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="details admonition note open disabled">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-pencil-alt" aria-hidden="true"></i>读取几何信息</div>
+  <div class="details-content">
+    <div class="admonition-content"><p>ST_AsText(geom) &ndash;返回创建坐标信息 <br>
+ST_GeometryType(geometry) —— 返回几何图形的类型 <br>
+ST_NDims(geometry) —— 返回几何图形的维度 <br>
+ST_SRID(geometry) —— 返回几何图形的空间参考标识码</p></div>
+  </div>
+</div><div class="highlight" data-open="false"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> name, ST_GeometryType(geom), ST_NDims(geom), ST_SRID(geom)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> geometries;</span></span></code></pre></div><h3 id="5点" class="heading-element"><span>5.点</span>
+  <a href="#5%e7%82%b9" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="details admonition note open disabled">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-pencil-alt" aria-hidden="true"></i>点</div>
+  <div class="details-content">
+    <div class="admonition-content"><p>ST_X(geometry) —— 返回X坐标 <br>
+ST_Y(geometry) —— 返回Y坐标 <br>
+ST_Z(geometry) —— 返回Z坐标 <br>
+ST_M(geometry) —— 返回M信息</p></div>
+  </div>
+</div><div class="highlight" data-open="false"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> ST_AsText(geom)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> geometries
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Point&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--POINT(0 0)</span></span></span></code></pre></div><h3 id="6线串" class="heading-element"><span>6.线串</span>
+  <a href="#6%e7%ba%bf%e4%b8%b2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="details admonition note open disabled">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-pencil-alt" aria-hidden="true"></i>线串</div>
+  <div class="details-content">
+    <div class="admonition-content"><p>ST_IsClosed ———是否闭合 <br>
+ST_IsSimple ———是否简单 <br>
+ST_Length(geometry) —— 返回线串的长度 <br>
+ST_StartPoint(geometry) —— 将线串的第一个坐标作为点返回 <br>
+ST_EndPoint(geometry) —— 将线串的最后一个坐标作为点返回 <br>
+ST_NPoints(geometry) —— 返回线串的坐标数量</p></div>
+  </div>
+</div><h3 id="7多边形" class="heading-element"><span>7.多边形</span>
+  <a href="#7%e5%a4%9a%e8%be%b9%e5%bd%a2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="details admonition note open disabled">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-pencil-alt" aria-hidden="true"></i>多边形</div>
+  <div class="details-content">
+    <div class="admonition-content"><p>ST_Area(geometry) —— 返回多边形的面积 <br>
+ST_NRings(geometry) —— 返回多边形中环的数量（通常为1个，其他是孔） <br>
+ST_ExteriorRing(geometry) —— 以线串的形式返回多边形最外面的环 <br>
+ST_InteriorRingN(geometry, n) —— 以线串形式返回指定的内部环 <br>
+ST_Perimeter(geometry) —— 返回所有环的长度</p></div>
+  </div>
+</div><div class="highlight" data-open="false"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> name, ST_Area(geom)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> geometries
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> name <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;Polygon%&#39;</span>;</span></span></code></pre></div><h3 id="8数据表中有多少个多边形为空心岛" class="heading-element"><span>8.数据表中有多少个多边形为空心岛</span>
+  <a href="#8%e6%95%b0%e6%8d%ae%e8%a1%a8%e4%b8%ad%e6%9c%89%e5%a4%9a%e5%b0%91%e4%b8%aa%e5%a4%9a%e8%be%b9%e5%bd%a2%e4%b8%ba%e7%a9%ba%e5%bf%83%e5%b2%9b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="highlight" data-open="false"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">Count</span>(<span style="color:#f92672">*</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> nyc_census_blocks
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">WHERE</span> ST_NumInteriorRings(ST_GeometryN(geom,<span style="color:#ae81ff">1</span>)) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>;</span></span></code></pre></div><h3 id="9图形集合" class="heading-element"><span>9.图形集合</span>
+  <a href="#9%e5%9b%be%e5%bd%a2%e9%9b%86%e5%90%88" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="details admonition note open disabled">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-pencil-alt" aria-hidden="true"></i>图形集合</div>
+  <div class="details-content">
+    <div class="admonition-content"><p>MultiPoint —— 点集合 <br>
+MultiLineString —— 线串集合 <br>
+MultiPolygon —— 多边形集合 <br>
+GeometryCollection —— 由任意几何图形组成的异构集合 <br>
+ST_NumGeometries(geometry) —— 返回集合中的组成部分的数量 <br>
+ST_GeometryN(geometry, n) —— 返回集合中指定的组成部分 <br>
+ST_Area(geometry) —— 返回集合中所有多边形组成部分的总面积 <br>
+ST_Length(geometry) —— 返回所有线段组成部分的总长度</p></div>
+  </div>
+</div><div class="highlight" data-open="false"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> name, ST_Area(geom)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> geometries</span></span></code></pre></div><h3 id="10几何输入与输出" class="heading-element"><span>10.几何输入与输出</span>
+  <a href="#10%e5%87%a0%e4%bd%95%e8%be%93%e5%85%a5%e4%b8%8e%e8%be%93%e5%87%ba" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="details admonition note open disabled">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-pencil-alt" aria-hidden="true"></i>几何输入与输出</div>
+  <div class="details-content">
+    <div class="admonition-content"><p><!-- raw HTML omitted -->1.Well-known text（WKT）<!-- raw HTML omitted --> <br>
+ST_GeomFromText(text, srid) —— 返回geometry <br>
+ST_AsText(geometry) —— 返回text <br>
+ST_AsEWKT(geometry) —— 返回text <br>
+<!-- raw HTML omitted -->2.Well-known binary（WKB）<!-- raw HTML omitted --> <br>
+ST_GeomFromWKB(bytea) —— 返回geometry <br>
+ST_AsBinary(geometry) —— 返回bytea <br>
+ST_AsEWKB(geometry) —— 返回bytea <br>
+<!-- raw HTML omitted -->3.Geographic Mark-up Language（GML）<!-- raw HTML omitted --> <br>
+ST_GeomFromGML(text) —— 返回geometry <br>
+ST_ASGML(geometry) —— 返回text <br>
+<!-- raw HTML omitted -->4.Keyhole Mark-up Language（KML）<!-- raw HTML omitted --> <br>
+ST_GeomFromKML(text) —— 返回geometry <br>
+ST_ASKML(geometry) —— 返回text <br>
+<!-- raw HTML omitted -->5.GeoJson<!-- raw HTML omitted --> <br>
+ST_AsGeoJSON(geometry) —— 返回text <br>
+6.Scalable Vector Graphics(SVG) <br>
+ST_AsSVG(geometry) —— 返回text</p></div>
+  </div>
+</div><div class="highlight" data-open="false"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#75715e">-- Using ST_GeomFromText with the SRID parameter
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> ST_GeomFromText(<span style="color:#e6db74">&#39;POINT(2 2)&#39;</span>,<span style="color:#ae81ff">4326</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Using ST_GeomFromText without the SRID parameter
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> ST_SetSRID(ST_GeomFromText(<span style="color:#e6db74">&#39;POINT(2 2)&#39;</span>),<span style="color:#ae81ff">4326</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Using a ST_Make* function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> ST_SetSRID(ST_MakePoint(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>), <span style="color:#ae81ff">4326</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Using PostgreSQL casting syntax and ISO WKT
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> ST_SetSRID(<span style="color:#e6db74">&#39;POINT(2 2)&#39;</span>::geometry, <span style="color:#ae81ff">4326</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Using PostgreSQL casting syntax and extended WKT
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#e6db74">&#39;SRID=4326;POINT(2 2)&#39;</span>::geometry;</span></span></code></pre></div><h3 id="11从文本转换" class="heading-element"><span>11.从文本转换</span>
+  <a href="#11%e4%bb%8e%e6%96%87%e6%9c%ac%e8%bd%ac%e6%8d%a2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><div class="details admonition note open disabled">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-pencil-alt" aria-hidden="true"></i>从文本转换</div>
+  <div class="details-content">
+    <div class="admonition-content"><p>ST_GeomFromText()转换为&rsquo;gometry&rsquo;类型 <br>
+olddata::newtype</p></div>
+  </div>
+</div><div class="highlight" data-open="false"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-SQL" data-lang="SQL"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#e6db74">&#39;POINT(0 0)&#39;</span>::geometry;</span></span></code></pre></div><blockquote>
+<p>本文参照https://zhuanlan.zhihu.com/c_1098918318844612608</p>
+</blockquote></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2022-09-27 15:36:18">更新于 2022-09-27&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="https://estherwangyx.github.io/posts/328370c/" data-title="PostGIS语法汇总（一）" data-hashtags="语法"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://estherwangyx.github.io/posts/328370c/" data-hashtag="语法"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://estherwangyx.github.io/posts/328370c/" data-title="PostGIS语法汇总（一）"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/%E8%AF%AD%E6%B3%95/" class="post-tag" title="标签 - 语法">语法</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/posts/street_green/e296f9d/" class="post-nav-item" rel="prev" title="城市绿化率分析"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>城市绿化率分析</a><a href="/posts/f59f2ae/" class="post-nav-item" rel="next" title="PostGIS语法汇总（二）">PostGIS语法汇总（二）<i class="fa-solid fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.142.0"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.17-8b402129"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2020 - 2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">wangyx</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/typeit/index.umd.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"typeit":{"cursorChar":" ","cursorSpeed":1000,"duration":-1,"loop":false,"speed":100},"version":"v0.3.17-8b402129"};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

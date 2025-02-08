@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Arcgis - 标签 - Wang Blog</title>
+    <link>https://estherwangyx.github.io/tags/arcgis/</link>
+    <description>Wang Blog</description>
+    <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
+    <language>en-us</language>
+    <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
+    <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
+    <lastBuildDate>Tue, 21 Apr 2020 05:38:45 +0800</lastBuildDate>
+    <atom:link href="https://estherwangyx.github.io/tags/arcgis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用模型构建器批量提取栅格</title>
+      <link>https://estherwangyx.github.io/posts/modelbuilder_extract_raster/6a13019/</link>
+      <pubDate>Tue, 21 Apr 2020 05:38:45 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/posts/modelbuilder_extract_raster/6a13019/</guid>
+      <category domain="https://estherwangyx.github.io/categories/gis/">GIS</category>
+      <description>使用Arcgis中的模型构建器工具批量提取栅格</description>
+    </item>
+    <item>
+      <title>Arcpy将文本信息转化为地理数据文件</title>
+      <link>https://estherwangyx.github.io/posts/5ea1002/</link>
+      <pubDate>Fri, 06 Mar 2020 05:51:17 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/posts/5ea1002/</guid>
+      <category domain="https://estherwangyx.github.io/categories/python/">Python</category>
+      <description>将文本文件转化为地理数据文件</description>
+    </item>
+  </channel>
+</rss>

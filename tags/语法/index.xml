@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>语法 - 标签 - Wang Blog</title>
+    <link>https://estherwangyx.github.io/tags/%E8%AF%AD%E6%B3%95/</link>
+    <description>Wang Blog</description>
+    <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
+    <language>en-us</language>
+    <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
+    <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
+    <lastBuildDate>Sat, 15 Oct 2022 01:18:46 +0800</lastBuildDate>
+    <atom:link href="https://estherwangyx.github.io/tags/%E8%AF%AD%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PostGIS语法汇总（六）</title>
+      <link>https://estherwangyx.github.io/posts/20e097d/</link>
+      <pubDate>Sat, 15 Oct 2022 01:18:46 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/posts/20e097d/</guid>
+      <category domain="https://estherwangyx.github.io/categories/postgis/">PostGIS</category>
+      <description>最近邻域</description>
+    </item>
+    <item>
+      <title>PostGIS语法汇总（五）</title>
+      <link>https://estherwangyx.github.io/posts/83f6c6a/</link>
+      <pubDate>Tue, 11 Oct 2022 19:28:18 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/posts/83f6c6a/</guid>
+      <category domain="https://estherwangyx.github.io/categories/postgis/">PostGIS</category>
+      <description>多边形的有效性，几何相等</description>
+    </item>
+    <item>
+      <title>PostGIS语法汇总（四）</title>
+      <link>https://estherwangyx.github.io/posts/364acf0/</link>
+      <pubDate>Mon, 10 Oct 2022 16:16:56 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/posts/364acf0/</guid>
+      <category domain="https://estherwangyx.github.io/categories/postgis/">PostGIS</category>
+      <description>地理坐标，地球坐标，空间索引</description>
+    </item>
+    <item>
+      <title>PostGIS语法汇总（三）</title>
+      <link>https://estherwangyx.github.io/posts/f59f2ae/</link>
+      <pubDate>Fri, 30 Sep 2022 18:31:15 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/posts/f59f2ae/</guid>
+      <category domain="https://estherwangyx.github.io/categories/postgis/">PostGIS</category>
+      <description>投影</description>
+    </item>
+    <item>
+      <title>PostGIS语法汇总（二）</title>
+      <link>https://estherwangyx.github.io/posts/f59f2ae/</link>
+      <pubDate>Wed, 28 Sep 2022 18:31:15 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/posts/f59f2ae/</guid>
+      <category domain="https://estherwangyx.github.io/categories/postgis/">PostGIS</category>
+      <description>空间连接，空间关系，空间索引</description>
+    </item>
+    <item>
+      <title>PostGIS语法汇总（一）</title>
+      <link>https://estherwangyx.github.io/posts/328370c/</link>
+      <pubDate>Tue, 27 Sep 2022 15:36:18 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/posts/328370c/</guid>
+      <category domain="https://estherwangyx.github.io/categories/postgis/">PostGIS</category>
+      <description>基本语法，几何图形，几何输入与输出，文本转换</description>
+    </item>
+  </channel>
+</rss>
