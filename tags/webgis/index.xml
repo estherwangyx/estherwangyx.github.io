@@ -11,12 +11,12 @@
     <lastBuildDate>Wed, 20 May 2020 06:10:32 +0800</lastBuildDate>
     <atom:link href="https://estherwangyx.github.io/tags/webgis/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>利用mapbox共享地图</title>
+      <title>利用mapbox分享地图成果</title>
       <link>https://estherwangyx.github.io/posts/mapbox_chaoyang/4e7f5b5/</link>
       <pubDate>Wed, 20 May 2020 06:10:32 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
       <guid>https://estherwangyx.github.io/posts/mapbox_chaoyang/4e7f5b5/</guid>
       <category domain="https://estherwangyx.github.io/categories/gis/">GIS</category>
-      <description>因为疫情原因，为了能方便将成果展示并交流。使用Mapbox制作线上地图并分享</description>
+      <description>因为疫情原因，为了能方便将成果展示并交流。使用Mapbox制作线上地图并发布分享</description>
     </item>
   </channel>
 </rss>

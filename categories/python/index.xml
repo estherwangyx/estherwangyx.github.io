@@ -16,7 +16,7 @@
       <pubDate>Wed, 15 Mar 2023 04:56:26 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
       <guid>https://estherwangyx.github.io/posts/387d48e/</guid>
       <category domain="https://estherwangyx.github.io/categories/python/">Python</category>
-      <category domain="https://estherwangyx.github.io/categories/arcgis/">Arcgis</category>
+      <category domain="https://estherwangyx.github.io/categories/gis/">GIS</category>
       <description>在固定某几个图层可见情况下，替换其他图层，输出地图。</description>
     </item>
     <item>
@@ -28,7 +28,7 @@
       <description>利用OpenCV颜色识别方法，识别街道中的植被覆盖面积</description>
     </item>
     <item>
-      <title>Arcpy将文本信息转化为地理数据文件</title>
+      <title>Arcpy将文本信息转化为shp文件</title>
       <link>https://estherwangyx.github.io/posts/5ea1002/</link>
       <pubDate>Fri, 06 Mar 2020 05:51:17 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
       <guid>https://estherwangyx.github.io/posts/5ea1002/</guid>

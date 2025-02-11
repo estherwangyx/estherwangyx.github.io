@@ -25,7 +25,7 @@
       <pubDate>Wed, 15 Mar 2023 04:56:26 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
       <guid>https://estherwangyx.github.io/posts/387d48e/</guid>
       <category domain="https://estherwangyx.github.io/categories/python/">Python</category>
-      <category domain="https://estherwangyx.github.io/categories/arcgis/">Arcgis</category>
+      <category domain="https://estherwangyx.github.io/categories/gis/">GIS</category>
       <description>在固定某几个图层可见情况下，替换其他图层，输出地图。</description>
     </item>
     <item>
@@ -54,9 +54,9 @@
     </item>
     <item>
       <title>PostGIS语法汇总（三）</title>
-      <link>https://estherwangyx.github.io/posts/f59f2ae/</link>
+      <link>https://estherwangyx.github.io/posts/4f5499e/</link>
       <pubDate>Fri, 30 Sep 2022 18:31:15 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>https://estherwangyx.github.io/posts/f59f2ae/</guid>
+      <guid>https://estherwangyx.github.io/posts/4f5499e/</guid>
       <category domain="https://estherwangyx.github.io/categories/postgis/">PostGIS</category>
       <description>投影</description>
     </item>
@@ -93,12 +93,12 @@
       <description>安装Dplyr的四种方法</description>
     </item>
     <item>
-      <title>利用mapbox共享地图</title>
+      <title>利用mapbox分享地图成果</title>
       <link>https://estherwangyx.github.io/posts/mapbox_chaoyang/4e7f5b5/</link>
       <pubDate>Wed, 20 May 2020 06:10:32 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
       <guid>https://estherwangyx.github.io/posts/mapbox_chaoyang/4e7f5b5/</guid>
       <category domain="https://estherwangyx.github.io/categories/gis/">GIS</category>
-      <description>因为疫情原因，为了能方便将成果展示并交流。使用Mapbox制作线上地图并分享</description>
+      <description>因为疫情原因，为了能方便将成果展示并交流。使用Mapbox制作线上地图并发布分享</description>
     </item>
     <item>
       <title>使用模型构建器批量提取栅格</title>
@@ -117,7 +117,15 @@
       <description>重装后安装过程中遇到的问题及解决办法</description>
     </item>
     <item>
-      <title>Arcpy将文本信息转化为地理数据文件</title>
+      <title>Python_walk_accessible</title>
+      <link>https://estherwangyx.github.io/posts/ab382b3/</link>
+      <pubDate>Sat, 07 Mar 2020 00:35:24 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/posts/ab382b3/</guid>
+      <category domain="https://estherwangyx.github.io/categories/gis/">GIS</category>
+      <description>Python_walk_accessible</description>
+    </item>
+    <item>
+      <title>Arcpy将文本信息转化为shp文件</title>
       <link>https://estherwangyx.github.io/posts/5ea1002/</link>
       <pubDate>Fri, 06 Mar 2020 05:51:17 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
       <guid>https://estherwangyx.github.io/posts/5ea1002/</guid>

@@ -6,17 +6,17 @@
     <description>Wang Blog</description>
     <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
     <language>en-us</language>
-    <managingEditor>wangyixuanang@163.com (wangyixuan)</managingEditor>
-    <webMaster>wangyixuanang@163.com (wangyixuan)</webMaster>
-    <lastBuildDate>Thu, 06 Feb 2025 06:10:32 +0800</lastBuildDate>
+    <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
+    <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
+    <lastBuildDate>Tue, 24 Dec 2024 00:35:24 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/draft/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Mapbox_chaoyang</title>
-      <link>http://localhost:1313/posts/4e7f5b5/</link>
-      <pubDate>Thu, 06 Feb 2025 06:10:32 +0800</pubDate>
-      <guid>http://localhost:1313/posts/4e7f5b5/</guid>
+      <title>Python_walk_accessible</title>
+      <link>http://localhost:1313/posts/ab382b3/</link>
+      <pubDate>Tue, 24 Dec 2024 00:35:24 +0800</pubDate>
+      <guid>http://localhost:1313/posts/ab382b3/</guid>
       <category domain="http://localhost:1313/categories/draft/">Draft</category>
-      <description>Mapbox_chaoyang</description>
+      <description>Python_walk_accessible</description>
     </item>
   </channel>
 </rss>

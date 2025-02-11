@@ -33,7 +33,7 @@
     <lastmod>2023-07-15T05:09:47+08:00</lastmod>
   </url>
   <url>
-    <loc>https://estherwangyx.github.io/categories/arcgis/</loc>
+    <loc>https://estherwangyx.github.io/categories/gis/</loc>
     <lastmod>2023-03-15T04:56:26+08:00</lastmod>
   </url>
   <url>
@@ -69,7 +69,7 @@
     <lastmod>2022-10-10T16:16:56+08:00</lastmod>
   </url>
   <url>
-    <loc>https://estherwangyx.github.io/posts/f59f2ae/</loc>
+    <loc>https://estherwangyx.github.io/posts/4f5499e/</loc>
     <lastmod>2022-09-30T18:31:15+08:00</lastmod>
   </url>
   <url>
@@ -105,10 +105,6 @@
     <lastmod>2020-06-21T01:54:49+08:00</lastmod>
   </url>
   <url>
-    <loc>https://estherwangyx.github.io/categories/gis/</loc>
-    <lastmod>2020-05-20T06:10:32+08:00</lastmod>
-  </url>
-  <url>
     <loc>https://estherwangyx.github.io/tags/mapbox/</loc>
     <lastmod>2020-05-20T06:10:32+08:00</lastmod>
   </url>
@@ -133,10 +129,21 @@
     <lastmod>2020-04-03T04:50:47+08:00</lastmod>
   </url>
   <url>
+    <loc>https://estherwangyx.github.io/posts/ab382b3/</loc>
+    <lastmod>2020-03-07T00:35:24+08:00</lastmod>
+  </url>
+  <url>
+    <loc>https://estherwangyx.github.io/tags/%E5%8F%AF%E8%BE%BE%E6%80%A7/</loc>
+    <lastmod>2020-03-07T00:35:24+08:00</lastmod>
+  </url>
+  <url>
     <loc>https://estherwangyx.github.io/posts/5ea1002/</loc>
     <lastmod>2020-03-06T05:51:17+08:00</lastmod>
   </url>
   <url>
     <loc>https://estherwangyx.github.io/about/</loc>
+  </url>
+  <url>
+    <loc>https://estherwangyx.github.io/archives/</loc>
   </url>
 </urlset>

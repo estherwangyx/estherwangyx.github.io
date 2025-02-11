@@ -8,15 +8,24 @@
     <language>en-us</language>
     <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
     <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
-    <lastBuildDate>Wed, 20 May 2020 06:10:32 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 15 Mar 2023 04:56:26 +0800</lastBuildDate>
     <atom:link href="https://estherwangyx.github.io/categories/gis/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>利用mapbox共享地图</title>
+      <title>Python批量输出地图，且一直保持底图可见</title>
+      <link>https://estherwangyx.github.io/posts/387d48e/</link>
+      <pubDate>Wed, 15 Mar 2023 04:56:26 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/posts/387d48e/</guid>
+      <category domain="https://estherwangyx.github.io/categories/python/">Python</category>
+      <category domain="https://estherwangyx.github.io/categories/gis/">GIS</category>
+      <description>在固定某几个图层可见情况下，替换其他图层，输出地图。</description>
+    </item>
+    <item>
+      <title>利用mapbox分享地图成果</title>
       <link>https://estherwangyx.github.io/posts/mapbox_chaoyang/4e7f5b5/</link>
       <pubDate>Wed, 20 May 2020 06:10:32 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
       <guid>https://estherwangyx.github.io/posts/mapbox_chaoyang/4e7f5b5/</guid>
       <category domain="https://estherwangyx.github.io/categories/gis/">GIS</category>
-      <description>因为疫情原因，为了能方便将成果展示并交流。使用Mapbox制作线上地图并分享</description>
+      <description>因为疫情原因，为了能方便将成果展示并交流。使用Mapbox制作线上地图并发布分享</description>
     </item>
     <item>
       <title>使用模型构建器批量提取栅格</title>
@@ -25,6 +34,14 @@
       <guid>https://estherwangyx.github.io/posts/modelbuilder_extract_raster/6a13019/</guid>
       <category domain="https://estherwangyx.github.io/categories/gis/">GIS</category>
       <description>使用Arcgis中的模型构建器工具批量提取栅格</description>
+    </item>
+    <item>
+      <title>Python_walk_accessible</title>
+      <link>https://estherwangyx.github.io/posts/ab382b3/</link>
+      <pubDate>Sat, 07 Mar 2020 00:35:24 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/posts/ab382b3/</guid>
+      <category domain="https://estherwangyx.github.io/categories/gis/">GIS</category>
+      <description>Python_walk_accessible</description>
     </item>
   </channel>
 </rss>

@@ -19,7 +19,7 @@
       <description>使用Arcgis中的模型构建器工具批量提取栅格</description>
     </item>
     <item>
-      <title>Arcpy将文本信息转化为地理数据文件</title>
+      <title>Arcpy将文本信息转化为shp文件</title>
       <link>https://estherwangyx.github.io/posts/5ea1002/</link>
       <pubDate>Fri, 06 Mar 2020 05:51:17 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
       <guid>https://estherwangyx.github.io/posts/5ea1002/</guid>

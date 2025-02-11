@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>可达性 - 标签 - Wang Blog</title>
+    <link>https://estherwangyx.github.io/tags/%E5%8F%AF%E8%BE%BE%E6%80%A7/</link>
+    <description>Wang Blog</description>
+    <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
+    <language>en-us</language>
+    <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
+    <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
+    <lastBuildDate>Sat, 07 Mar 2020 00:35:24 +0800</lastBuildDate>
+    <atom:link href="https://estherwangyx.github.io/tags/%E5%8F%AF%E8%BE%BE%E6%80%A7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python_walk_accessible</title>
+      <link>https://estherwangyx.github.io/posts/ab382b3/</link>
+      <pubDate>Sat, 07 Mar 2020 00:35:24 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://estherwangyx.github.io/posts/ab382b3/</guid>
+      <category domain="https://estherwangyx.github.io/categories/gis/">GIS</category>
+      <description>Python_walk_accessible</description>
+    </item>
+  </channel>
+</rss>

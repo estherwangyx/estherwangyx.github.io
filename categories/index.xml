@@ -25,11 +25,11 @@
       <description>Spark</description>
     </item>
     <item>
-      <title>Arcgis</title>
-      <link>https://estherwangyx.github.io/categories/arcgis/</link>
+      <title>GIS</title>
+      <link>https://estherwangyx.github.io/categories/gis/</link>
       <pubDate>Wed, 15 Mar 2023 04:56:26 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>https://estherwangyx.github.io/categories/arcgis/</guid>
-      <description>Arcgis</description>
+      <guid>https://estherwangyx.github.io/categories/gis/</guid>
+      <description>GIS</description>
     </item>
     <item>
       <title>Python</title>
@@ -51,13 +51,6 @@
       <pubDate>Sun, 21 Jun 2020 01:54:49 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
       <guid>https://estherwangyx.github.io/categories/r%E8%AF%AD%E8%A8%80/</guid>
       <description>R语言</description>
-    </item>
-    <item>
-      <title>GIS</title>
-      <link>https://estherwangyx.github.io/categories/gis/</link>
-      <pubDate>Wed, 20 May 2020 06:10:32 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>https://estherwangyx.github.io/categories/gis/</guid>
-      <description>GIS</description>
     </item>
   </channel>
 </rss>
