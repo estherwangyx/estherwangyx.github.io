@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据分析 - 标签 - Wang Blog</title>
+    <link>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
+    <description>Wang Blog</description>
+    <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
+    <language>en-us</language>
+    <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
+    <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
+    <lastBuildDate>Thu, 15 Dec 2022 09:25:33 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Numpy_2</title>
+      <link>http://localhost:1313/posts/numpy_2/bbce8a6/</link>
+      <pubDate>Thu, 15 Dec 2022 09:25:33 +0800</pubDate>
+      <guid>http://localhost:1313/posts/numpy_2/bbce8a6/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>求和，最大值最小值，聚合函数</description>
+    </item>
+    <item>
+      <title>Numpy_1</title>
+      <link>http://localhost:1313/posts/number_pandas1/59c5244/</link>
+      <pubDate>Thu, 08 Dec 2022 05:45:52 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>http://localhost:1313/posts/number_pandas1/59c5244/</guid>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>数组基础，数组索引，数组切片</description>
+    </item>
+  </channel>
+</rss>

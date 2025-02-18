@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>地图API - 标签 - Wang Blog</title>
+    <link>http://localhost:1313/tags/%E5%9C%B0%E5%9B%BEapi/</link>
+    <description>Wang Blog</description>
+    <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
+    <language>en-us</language>
+    <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
+    <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
+    <lastBuildDate>Fri, 27 Dec 2024 07:39:04 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E5%9C%B0%E5%9B%BEapi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dash-Leaflet功能及其框架结构</title>
+      <link>http://localhost:1313/posts/66ab638/</link>
+      <pubDate>Fri, 27 Dec 2024 07:39:04 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>http://localhost:1313/posts/66ab638/</guid>
+      <category domain="http://localhost:1313/categories/leaflet/">Leaflet</category>
+      <description>&lt;p&gt;Dash Leaflet是一个封装式的Leaflet，主导了开源Javascript的交互式地图。语法类似其他Dash结构，命名规范遵循React-Leaflet。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

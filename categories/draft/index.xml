@@ -8,15 +8,15 @@
     <language>en-us</language>
     <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
     <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
-    <lastBuildDate>Tue, 24 Dec 2024 00:35:24 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 20 Aug 2024 08:13:57 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/draft/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Python_walk_accessible</title>
-      <link>http://localhost:1313/posts/ab382b3/</link>
-      <pubDate>Tue, 24 Dec 2024 00:35:24 +0800</pubDate>
-      <guid>http://localhost:1313/posts/ab382b3/</guid>
+      <title>利用Python构建等时圈</title>
+      <link>http://localhost:1313/posts/b8896e1/</link>
+      <pubDate>Tue, 20 Aug 2024 08:13:57 +0800</pubDate>
+      <guid>http://localhost:1313/posts/b8896e1/</guid>
       <category domain="http://localhost:1313/categories/draft/">Draft</category>
-      <description>Python_walk_accessible</description>
+      <description>&lt;p&gt;等时线表示从特定点在一定时间内可以到达的地理区域。例如，在步行距离的背景下，等时线是城市规划师等专业人士的有用工具，旨在了解特定区域内的可达性和连通性。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

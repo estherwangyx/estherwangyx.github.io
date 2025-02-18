@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>笔记 - 标签 - Wang Blog</title>
+    <link>http://localhost:1313/tags/%E7%AC%94%E8%AE%B0/</link>
+    <description>Wang Blog</description>
+    <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
+    <language>en-us</language>
+    <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
+    <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>python计算等时线</title>
+      <link>http://localhost:1313/posts/3345919/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>http://localhost:1313/posts/3345919/</guid>
+      <category domain="http://localhost:1313/categories/gis/">GIS</category>
+      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <description>python计算等时线</description>
+    </item>
+  </channel>
+</rss>

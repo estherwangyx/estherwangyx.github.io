@@ -1,0 +1,561 @@
+---
+title: Numpy教程1
+subtitle:
+date: 2023-12-8T05:45:52+08:00
+slug: 59c5244
+draft: true
+author:
+  name: wangyx
+  link:
+  email:
+  avatar:
+description: 数组基础，数组索引，数组切片
+keywords:
+license:
+comment: false
+weight: 0
+tags:
+  - numpy
+  - 数据分析
+categories:
+  - python
+hiddenFromHomePage: false
+hiddenFromSearch: false
+hiddenFromRelated: false
+hiddenFromFeed: false
+summary:
+resources:
+  - name: featured-image
+    src: featured-image.jpg
+  - name: featured-image-preview
+    src: featured-image-preview.jpg
+toc: true
+math: false
+lightgallery: false
+password:
+message:
+repost:
+  enable: true
+  url:
+
+# See details front matter: https://fixit.lruihao.cn/documentation/content-management/introduction/#front-matter
+---
+
+<!--more-->
+
+ Numpy1-1
+
+
+```python
+import numpy
+numpy.__version__
+```
+
+
+
+
+    '1.20.1'
+
+
+
+
+```python
+import numpy as np
+```
+
+## 1.1数据类型
+
+
+```python
+result = 0;
+for i in range(5):
+    result +=i;
+    print(i)
+```
+
+    0
+    1
+    2
+    3
+    4
+    
+
+创建列表
+
+
+```python
+L =list(range(5))
+L
+```
+
+
+
+
+    [0, 1, 2, 3, 4]
+
+
+
+
+```python
+type(L[0])
+```
+
+
+
+
+    int
+
+
+
+创建字符串
+
+
+```python
+L2 = [str(c) for c in L]
+L2
+```
+
+
+
+
+    ['0', '1', '2', '3', '4']
+
+
+
+
+```python
+type(L2[0])
+```
+
+
+
+
+    str
+
+
+
+创建混合数据类型
+
+
+```python
+L3 = [True,"2",3.0,4]
+[type(item) for item in L3]
+```
+
+
+
+
+    [bool, str, float, int]
+
+
+
+### 创建数组array
+
+
+```python
+import array
+```
+
+
+```python
+np.array([1,4,2,5,3])
+```
+
+
+
+
+    array([1, 4, 2, 5, 3])
+
+
+
+
+```python
+np.array([1,2,3,4], dtype='float32')
+```
+
+
+
+
+    array([1., 2., 3., 4.], dtype=float32)
+
+
+
+嵌套列表构成多维数组
+
+
+```python
+np.array([range(i,i+3) for i in [2,4,6]])
+```
+
+
+
+
+    array([[2, 3, 4],
+           [4, 5, 6],
+           [6, 7, 8]])
+
+
+
+### 从头创建数组
+
+
+```python
+#创建长度为10的数组，值全为0
+np.zeros(10,dtype=int)
+```
+
+
+
+
+    array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+
+
+
+```python
+#创建3*5的浮点型数组，值全为1
+np.ones((3,5),dtype=float)
+```
+
+
+
+
+    array([[1., 1., 1., 1., 1.],
+           [1., 1., 1., 1., 1.],
+           [1., 1., 1., 1., 1.]])
+
+
+
+
+```python
+#创建线性序列数组
+#0-20，步长为4
+np.arange(0,20,4)
+```
+
+
+
+
+    array([ 0,  4,  8, 12, 16])
+
+
+
+
+```python
+#3*3,0-1均匀分布的随机数组
+np.random.random((3,3))
+```
+
+
+
+
+    array([[0.50592786, 0.08208466, 0.14436866],
+           [0.53875038, 0.85639702, 0.57801106],
+           [0.2964527 , 0.72428348, 0.48203616]])
+
+
+
+
+```python
+#均值为0，标准差为1，3*3
+np.random.normal(0,1,(3,3))
+```
+
+
+
+
+    array([[ 0.25442388, -0.85815749, -0.02788115],
+           [ 2.69247394, -0.21825206, -1.32145554],
+           [-1.36825683, -0.2111459 , -0.83986502]])
+
+
+
+
+```python
+#(1-10)区间，3*3
+np.random.randint(1,10,(3,3))
+```
+
+
+
+
+    array([[6, 5, 6],
+           [8, 4, 8],
+           [4, 3, 6]])
+
+
+
+
+```python
+#3*3 单位矩阵
+np.eye(3)
+```
+
+
+
+
+    array([[1., 0., 0.],
+           [0., 1., 0.],
+           [0., 0., 1.]])
+
+
+
+
+```python
+#3个整型数组 未初始化 数组
+np.empty(3)
+```
+
+
+
+
+    array([1., 1., 1.])
+
+
+
+## 1.2数组基础
+
+### 数组属性
+
+种子值 seed
+数组维度 ndim  
+维度大小 shape  
+数组总大小 size
+数组元素字节大小 itemsize
+
+
+```python
+np.random.seed(0) #设置随机种子数
+
+x1 = np.random.randint(10,size=6) #一维数组
+x2 = np.random.randint(10,size=(3,4)) #二维数组
+x3 = np.random.randint(10,size=(3,4,5)) #三维数组
+```
+
+NameError                                 Traceback (most recent call last)
+<ipython-input-34-6b03d4279792> in <module>
+      5 np.random.seed(0) #设置随机种子数
+      6 
+----> 7 x1 = random.randint(10,size=6) #一维数组
+      8 x2 = random.randint(10,size=(3,4)) #一维数组
+
+NameError: name 'random' is not defined
+  
+ ####缺少 np
+
+
+```python
+print("x3 ndim:",x3.ndim) #数组维度
+print("x3 shape:",x3.shape)
+print("x3 size:",x3.size)
+```
+
+    x3 ndim: 3
+    x3 shape: (3, 4, 5)
+    x3 size: 60
+    
+
+### 1.3数组索引
+
+一维索引
+
+
+```python
+x1
+```
+
+
+
+
+    array([5, 0, 3, 3, 7, 9])
+
+
+
+
+```python
+x1[0]
+```
+
+
+
+
+    5
+
+
+
+
+```python
+#获取末尾索引——负值索引
+x1[-1]
+```
+
+
+
+
+    9
+
+
+
+二维索引
+
+
+```python
+x2
+```
+
+
+
+
+    array([[3, 5, 2, 4],
+           [7, 6, 8, 8],
+           [1, 6, 7, 7]])
+
+
+
+
+```python
+x2[2,1]
+```
+
+
+
+
+    6
+
+
+
+
+```python
+x2[0,1]=12
+x2
+```
+
+
+
+
+    array([[ 3, 12,  2,  4],
+           [ 7,  6,  8,  8],
+           [ 1,  6,  7,  7]])
+
+
+
+#### 数组切片
+
+
+```python
+x=np.arange(10)
+x
+```
+
+
+
+
+    array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+
+
+
+
+```python
+#前5个元素
+x[:5]
+```
+
+
+
+
+    array([0, 1, 2, 3, 4])
+
+
+
+
+```python
+#5个之后元素
+x[5:]
+```
+
+
+
+
+    array([5, 6, 7, 8, 9])
+
+
+
+
+```python
+#中间子数组
+x[4:7]
+```
+
+
+
+
+    array([4, 5, 6])
+
+
+
+
+```python
+#每隔1个数组
+x[::2]
+```
+
+
+
+
+    array([0, 2, 4, 6, 8])
+
+
+
+
+```python
+#从索引1开始，每隔1个
+x[1::2]
+```
+
+
+
+
+    array([1, 3, 5, 7, 9])
+
+
+
+
+```python
+#逆序数组
+x[5::-2]
+```
+
+
+
+
+    array([5, 3, 1])
+
+
+
+获取行/列
+
+
+```python
+# ":"表示空切片，表示整组
+print(x2[:,0]) #第一列
+print(x2[0,:]) #第一行
+#行简易方法
+print(x2[0])
+```
+
+    [3 7 1]
+    [ 3 12  2  4]
+    [ 3 12  2  4]
+    
+
+创建数组副本
+
+
+```python
+#copy()
+x2_sub_copy = x2[:2,:2].copy()  #前两个元素
+print(x2_sub_copy)
+```
+
+    [[ 3 12]
+     [ 7  6]]

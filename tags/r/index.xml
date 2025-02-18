@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R - 标签 - Wang Blog</title>
-    <link>https://estherwangyx.github.io/tags/r/</link>
+    <link>http://localhost:1313/tags/r/</link>
     <description>Wang Blog</description>
     <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
     <language>en-us</language>
     <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
     <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
     <lastBuildDate>Sun, 21 Jun 2020 01:54:49 +0800</lastBuildDate>
-    <atom:link href="https://estherwangyx.github.io/tags/r/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/r/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>R语言不能安装dplyr包</title>
-      <link>https://estherwangyx.github.io/posts/install_r/c6ce5d7/</link>
+      <link>http://localhost:1313/posts/install_r/c6ce5d7/</link>
       <pubDate>Sun, 21 Jun 2020 01:54:49 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>https://estherwangyx.github.io/posts/install_r/c6ce5d7/</guid>
-      <category domain="https://estherwangyx.github.io/categories/r%E8%AF%AD%E8%A8%80/">R语言</category>
+      <guid>http://localhost:1313/posts/install_r/c6ce5d7/</guid>
+      <category domain="http://localhost:1313/categories/r%E8%AF%AD%E8%A8%80/">R语言</category>
       <description>安装Dplyr的四种方法</description>
     </item>
   </channel>

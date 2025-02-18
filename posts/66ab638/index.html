@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Dash-Leaflet功能及其框架结构 - Wang Blog</title><meta name="author" content="wangyx">
+<meta name="description" content="Dash Leaflet是一个封装式的Leaflet，主导了开源Javascript的交互式地图。语法类似其他Dash结构，命名规范遵循React-Leaflet。
+"><meta name="keywords" content='开源地图'>
+  <meta itemprop="name" content="Dash-Leaflet功能及其框架结构">
+  <meta itemprop="description" content="Dash Leaflet是一个封装式的Leaflet，主导了开源Javascript的交互式地图。语法类似其他Dash结构，命名规范遵循React-Leaflet。">
+  <meta itemprop="datePublished" content="2024-12-27T07:39:04+08:00">
+  <meta itemprop="dateModified" content="2024-12-27T07:39:04+08:00">
+  <meta itemprop="wordCount" content="272">
+  <meta itemprop="keywords" content="开源地图"><meta property="og:url" content="http://localhost:1313/posts/66ab638/">
+  <meta property="og:site_name" content="Wang Blog">
+  <meta property="og:title" content="Dash-Leaflet功能及其框架结构">
+  <meta property="og:description" content="Dash Leaflet是一个封装式的Leaflet，主导了开源Javascript的交互式地图。语法类似其他Dash结构，命名规范遵循React-Leaflet。">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-12-27T07:39:04+08:00">
+    <meta property="article:modified_time" content="2024-12-27T07:39:04+08:00">
+    <meta property="article:tag" content="开源地图">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Dash-Leaflet功能及其框架结构">
+  <meta name="twitter:description" content="Dash Leaflet是一个封装式的Leaflet，主导了开源Javascript的交互式地图。语法类似其他Dash结构，命名规范遵循React-Leaflet。">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="http://localhost:1313/posts/66ab638/" title="Dash-Leaflet功能及其框架结构 - Wang Blog" /><link rel="prev" type="text/html" href="http://localhost:1313/posts/b8896e1/" title="利用Python构建等时圈" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Dash-Leaflet功能及其框架结构",
+    "inLanguage": "en-us",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "http:\/\/localhost:1313\/posts\/66ab638\/"
+    },"genre": "posts","keywords": "开源地图","wordcount":  272 ,
+    "url": "http:\/\/localhost:1313\/posts\/66ab638\/","datePublished": "2024-12-27T07:39:04+08:00","dateModified": "2024-12-27T07:39:04+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "wangyx"
+      },"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Wang Blog"><span class="header-title-text">Esther Wang&#39;s Blog</span></a><span class="typeit header-subtitle"><template></template></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-layer-group fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a class="menu-link" href="/archives/"><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-user-large fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Wang Blog"><span class="header-title-text">Esther Wang&#39;s Blog</span></a><span class="typeit header-subtitle"><template></template></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-layer-group fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item"><a class="menu-link" href="/archives/"><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-user-large fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Dash-Leaflet功能及其框架结构</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      wangyx</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/leaflet/" class="post-category" title="分类 - Leaflet"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Leaflet</a></span></div><div class="post-meta-line"><span title="发布于 2024-12-27 07:39:04"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2024-12-27">2024-12-27</time></span>&nbsp;<span title="272 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 300 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#组成概况">组成概况</a>
+      <ul>
+        <li><a href="#react-leaflet">React Leaflet</a></li>
+        <li><a href="#leaflet-plugins">leaflet plugins</a></li>
+        <li><a href="#自定义组件">自定义组件</a></li>
+      </ul>
+    </li>
+    <li><a href="#属性可变">属性可变</a>
+      <ul>
+        <li><a href="#属性标签">属性标签</a></li>
+      </ul>
+    </li>
+    <li><a href="#组件的唯一性">组件的唯一性</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#javascript变量">Javascript变量</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><p>Dash Leaflet是一个封装式的Leaflet，主导了开源Javascript的交互式地图。语法类似其他Dash结构，命名规范遵循React-Leaflet。</p>
+<p>安装Dash-leaflet</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install dash-leaflet</span></span></code></pre></div><p>运行Dash-leaflet。通过在浏览器中访问 <a href="http://127.0.0.1:8050/"target="_blank" rel="external nofollow noopener noreferrer">http://127.0.0.1:8050/</a> 便可得到Leaflet map。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>from dash import Dash
+</span></span><span style="display:flex;"><span>import dash_leaflet as dl
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app <span style="color:#f92672">=</span> Dash<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>app.layout <span style="color:#f92672">=</span> dl.Map<span style="color:#f92672">(</span>dl.TileLayer<span style="color:#f92672">()</span>, center<span style="color:#f92672">=[</span>56,10<span style="color:#f92672">]</span>, zoom<span style="color:#f92672">=</span>6, style<span style="color:#f92672">={</span><span style="color:#e6db74">&#39;height&#39;</span>: <span style="color:#e6db74">&#39;50vh&#39;</span><span style="color:#f92672">})</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    app.run_server<span style="color:#f92672">()</span></span></span></code></pre></div><p>其他推荐/相关安装包：</p>
+<p><a href="https://www.dash-extensions.com/"target="_blank" rel="external nofollow noopener noreferrer"><code>dash-extensions</code></a>：增速Dash发展</p>
+<p><a href="https://www.dash-mantine-components.com/"target="_blank" rel="external nofollow noopener noreferrer"><code>dash-mantine-components</code></a>：在Dash中创建用户接口</p>
+<p>这个本身是个Dash APP创建的，用<code>dash-mantine-components</code>, <code>dash-extensions</code>, <a href="https://www.dash-mantine-components.com/getting-started/dash-iconify"target="_blank" rel="external nofollow noopener noreferrer"><code>dash-iconify</code></a>, 和 [<code>dash-down](https://github.com/emilhe/dash-down)。</code></p>
+<h2 id="组成概况" class="heading-element"><span>组成概况</span>
+  <a href="#%e7%bb%84%e6%88%90%e6%a6%82%e5%86%b5" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>所有组件都被记录在dash-leaflet组成 API 参照中</p>
+<h3 id="react-leaflet" class="heading-element"><span>React Leaflet</span>
+  <a href="#react-leaflet" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>大部分组件都是React Leaflet复制的轻量包装</p>
+<ul>
+<li>UI Layers
+<ul>
+<li><code>Marker</code></li>
+<li><code>Popup</code></li>
+<li><code>Tooltip</code></li>
+</ul>
+</li>
+<li>Raster Layers
+<ul>
+<li><code>TileLayer</code></li>
+<li><code>WMSTileLayer</code></li>
+<li><code>ImageOverlay</code></li>
+<li><code>VideoOverlay</code></li>
+</ul>
+</li>
+<li>Vector Layers
+<ul>
+<li><code>Circle</code></li>
+<li><code>CircleMarker</code></li>
+<li><code>Polyline</code></li>
+<li><code>Polygon</code></li>
+<li><code>Rectangle</code></li>
+<li><code>SVGOverlay</code></li>
+</ul>
+</li>
+<li>Other Layers
+<ul>
+<li><code>LayerGroup</code></li>
+<li><code>FeatureGroup</code></li>
+<li><code>Pane</code></li>
+</ul>
+</li>
+<li>Controls
+<ul>
+<li><code>ZoomControl</code></li>
+<li><code>AttributionControl</code></li>
+<li><code>LayersControl</code></li>
+<li><code>ScaleControl</code></li>
+</ul>
+</li>
+</ul>
+<p>对于这些附加文件在组成上， <a href="https://react-leaflet.js.org/docs/api-components/"target="_blank" rel="external nofollow noopener noreferrer">React-Leaflet API component reference</a>  和 <a href="https://leafletjs.com/reference.html"target="_blank" rel="external nofollow noopener noreferrer">Leaflet API reference</a> 同样是最好的资源</p>
+<h3 id="leaflet-plugins" class="heading-element"><span>leaflet plugins</span>
+  <a href="#leaflet-plugins" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>除了核心组成外，还有大量的Leaflet插件存在。小部分比较常用的也被移植</p>
+<ul>
+<li><a href="https://github.com/bbecquet/Leaflet.PolylineDecorator"target="_blank" rel="external nofollow noopener noreferrer"><code>PolylineDecorator</code></a></li>
+<li><a href="https://github.com/domoritz/leaflet-locatecontrol"target="_blank" rel="external nofollow noopener noreferrer"><code>LocateControl</code></a></li>
+<li><a href="https://github.com/ljagis/leaflet-measure"target="_blank" rel="external nofollow noopener noreferrer"><code>MeasureControl</code></a></li>
+<li><a href="https://github.com/Leaflet/Leaflet.draw"target="_blank" rel="external nofollow noopener noreferrer"><code>EditControl</code></a></li>
+<li><a href="https://github.com/CliffCloud/Leaflet.EasyButton"target="_blank" rel="external nofollow noopener noreferrer"><code>EasyButton</code></a></li>
+<li><a href="https://github.com/brunob/leaflet.fullscreen"target="_blank" rel="external nofollow noopener noreferrer"><code>FullScreenControl</code></a></li>
+<li><a href="https://github.com/brunob/leaflet.fullscreen"target="_blank" rel="external nofollow noopener noreferrer"><code>GestureHandling</code></a></li>
+</ul>
+<h3 id="自定义组件" class="heading-element"><span>自定义组件</span>
+  <a href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e7%bb%84%e4%bb%b6" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>一些自定义组件也被开发了</p>
+<ul>
+<li><code>DivMarker</code> (a customized marker that uses a <a href="https://leafletjs.com/reference.html#divicon"target="_blank" rel="external nofollow noopener noreferrer">DivIcon</a> instead of an <a href="https://leafletjs.com/reference.html#icon"target="_blank" rel="external nofollow noopener noreferrer">Icon</a>)</li>
+<li><code>ColorBar</code> (a simple color bar, typically used with plots)</li>
+<li><code>GeoJSON</code> (based on the <a href="https://leafletjs.com/reference-1.6.0.html#geojson"target="_blank" rel="external nofollow noopener noreferrer">Leaflet GeoJSON component</a> and <a href="https://github.com/mapbox/supercluster"target="_blank" rel="external nofollow noopener noreferrer">supercluster</a>)</li>
+</ul>
+<p>一般来说，这些为了组件的文件是限制在dash-leaflet API参考和这些源代码中的。像是GeoJSON组件，有专门的教程</p>
+<h2 id="属性可变" class="heading-element"><span>属性可变</span>
+  <a href="#%e5%b1%9e%e6%80%a7%e5%8f%af%e5%8f%98" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>dash-leaflet是建立在最顶端 React Leaflet 基础上，而React Leaflet是建立在Leaflet上。React Leaflet引进了可变属性和不可变属性的概念。可变属性能够在组件船舰后被改变，然而不可变不能做到炸点。如果你发现自己需要改变一个不可变的属性，你要用相应的不可变属性重新创建组件。</p>
+<h3 id="属性标签" class="heading-element"><span>属性标签</span>
+  <a href="#%e5%b1%9e%e6%80%a7%e6%a0%87%e7%ad%be" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h3><p>属性标记在字符串中通过 [MUTABLE] 标签保证是可变的。一个例子就是GeoJSON中的属性 zoomToBoundsOnClick</p>
+<ul>
+<li><code>zoomToBoundsOnClick (boolean; optional): If True, zoom to feature bounds on click. [MUTABLE, DL].</code></li>
+</ul>
+<p>这些特别的实行是收录在 [DL] 标签中。指示这属性创建和特别定制给Dash-leaflet。因此文档可能会不可用在底层库中,折线传单中的行为可能会偏离记录的内容。</p>
+<h2 id="组件的唯一性" class="heading-element"><span>组件的唯一性</span>
+  <a href="#%e7%bb%84%e4%bb%b6%e7%9a%84%e5%94%af%e4%b8%80%e6%80%a7" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h2 id="功能属性" class="heading-element"><span>功能属性</span>
+  <a href="#%e5%8a%9f%e8%83%bd%e5%b1%9e%e6%80%a7" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>在dash-leaflet中，一些组成属性是功能。在Dash中功能操作不能直接作为属性出现的。但是dash-extensions提供少量的隐式选择。举个例子，我们考虑GeoJSON组成这个安装包。</p>
+<h2 id="javascript变量" class="heading-element"><span>Javascript变量</span>
+  <a href="#javascript%e5%8f%98%e9%87%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>在dash-extensions 能够使变量的映射在窗口对象到组成属性。因此，如果我饿们创建一个 .js文件在assets文件夹中并写有一下内容：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>window.myNamespace <span style="color:#f92672">=</span> Object.assign<span style="color:#f92672">({}</span>, window.myNamespace, <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>    mySubNamespace: <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>        pointToLayer: <span style="color:#66d9ef">function</span><span style="color:#f92672">(</span>feature, latlng, context<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>  
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> L.circleMarker<span style="color:#f92672">(</span>latlng<span style="color:#f92672">)</span>  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">})</span>;</span></span></code></pre></div><p>myNamespace.mySubNamespace中的pointToLayer功能能够被用来作为组成属性。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> dash_leaflet <span style="color:#66d9ef">as</span> dl
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> dash_extensions.javascript <span style="color:#f92672">import</span> Namespace
+</span></span><span style="display:flex;"><span>ns <span style="color:#f92672">=</span> Namespace(<span style="color:#e6db74">&#34;myNamespace&#34;</span>, <span style="color:#e6db74">&#34;mySubNamespace&#34;</span>)
+</span></span><span style="display:flex;"><span>geojson <span style="color:#f92672">=</span> dl<span style="color:#f92672">.</span>GeoJSON(data<span style="color:#f92672">=</span>data, pointToLayer<span style="color:#f92672">=</span>ns(<span style="color:#e6db74">&#34;pointToLayer&#34;</span>))</span></span></code></pre></div><p>为了完整性，例如这是一个完整的app</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> random
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> dash_leaflet <span style="color:#66d9ef">as</span> dl
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> dash_leaflet.express <span style="color:#66d9ef">as</span> dlx
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> dash <span style="color:#f92672">import</span> Dash
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> dash_extensions.javascript <span style="color:#f92672">import</span> Namespace
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create some markers.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#创建一些标记</span>
+</span></span><span style="display:flex;"><span>points <span style="color:#f92672">=</span> [dict(lat<span style="color:#f92672">=</span><span style="color:#ae81ff">55.5</span> <span style="color:#f92672">+</span> random<span style="color:#f92672">.</span>random(), lon<span style="color:#f92672">=</span><span style="color:#ae81ff">9.5</span> <span style="color:#f92672">+</span> random<span style="color:#f92672">.</span>random(), value<span style="color:#f92672">=</span>random<span style="color:#f92672">.</span>random()) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">100</span>)]
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> dlx<span style="color:#f92672">.</span>dicts_to_geojson(points)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create geojson.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#创建geojson</span>
+</span></span><span style="display:flex;"><span>ns <span style="color:#f92672">=</span> Namespace(<span style="color:#e6db74">&#34;myNamespace&#34;</span>, <span style="color:#e6db74">&#34;mySubNamespace&#34;</span>)
+</span></span><span style="display:flex;"><span>geojson <span style="color:#f92672">=</span> dl<span style="color:#f92672">.</span>GeoJSON(data<span style="color:#f92672">=</span>data, pointToLayer<span style="color:#f92672">=</span>ns(<span style="color:#e6db74">&#34;pointToLayer&#34;</span>))
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create the app.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#创建app</span>
+</span></span><span style="display:flex;"><span>app <span style="color:#f92672">=</span> Dash()
+</span></span><span style="display:flex;"><span>app<span style="color:#f92672">.</span>layout <span style="color:#f92672">=</span> dl<span style="color:#f92672">.</span>Map([dl<span style="color:#f92672">.</span>TileLayer(), geojson], center<span style="color:#f92672">=</span>(<span style="color:#ae81ff">56</span>, <span style="color:#ae81ff">10</span>), zoom<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>, style<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;height&#39;</span>: <span style="color:#e6db74">&#39;50vh&#39;</span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+</span></span><span style="display:flex;"><span>    app<span style="color:#f92672">.</span>run_server()</span></span></code></pre></div></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2024-12-27 07:39:04">更新于 2024-12-27&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="http://localhost:1313/posts/66ab638/" data-title="Dash-Leaflet功能及其框架结构" data-hashtags="开源地图"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://localhost:1313/posts/66ab638/" data-hashtag="开源地图"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://localhost:1313/posts/66ab638/" data-title="Dash-Leaflet功能及其框架结构"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/%E5%BC%80%E6%BA%90%E5%9C%B0%E5%9B%BE/" class="post-tag" title="标签 - 开源地图">开源地图</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/posts/b8896e1/" class="post-nav-item" rel="prev" title="利用Python构建等时圈"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>利用Python构建等时圈</a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.142.0"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.17-8b402129"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">wangyx</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/twemoji/twemoji.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/typeit/index.umd.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":50},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"twemoji":true,"typeit":{"cursorChar":" ","cursorSpeed":1000,"duration":-1,"loop":false,"speed":100},"version":"v0.3.17-8b402129"};console.log('Page config:', window.config);</script><script src="/js/theme.min.js" defer></script></body>
+</html>
