@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
     <meta name="robots" content="noodp" />
-    <title>Streamlit让空间数据实现网页可视化 - Wang Blog</title><meta name="author" content="">
+    <title>Streamlit让空间数据实现网页可视化 - Wang Blog</title><meta name="author" content="wang">
 <meta name="description" content="介绍Streamlit快速构建网页APP的方法
 "><meta name="keywords" content='可视化'>
   <meta itemprop="name" content="Streamlit让空间数据实现网页可视化">
   <meta itemprop="description" content="介绍Streamlit快速构建网页APP的方法">
   <meta itemprop="datePublished" content="2025-04-24T04:29:02+08:00">
   <meta itemprop="dateModified" content="2025-04-24T04:29:02+08:00">
-  <meta itemprop="wordCount" content="492">
+  <meta itemprop="wordCount" content="491">
   <meta itemprop="keywords" content="可视化"><meta property="og:url" content="https://example.org/posts/streamlit_visual/9283b61/">
   <meta property="og:site_name" content="Wang Blog">
   <meta property="og:title" content="Streamlit让空间数据实现网页可视化">
@@ -41,10 +41,13 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/example.org\/posts\/streamlit_visual\/9283b61\/"
-    },"genre": "posts","keywords": "可视化","wordcount":  492 ,
+    },"genre": "posts","keywords": "可视化","wordcount":  491 ,
     "url": "https:\/\/example.org\/posts\/streamlit_visual\/9283b61\/","datePublished": "2025-04-24T04:29:02+08:00","dateModified": "2025-04-24T04:29:02+08:00","publisher": {
       "@type": "Organization",
-      "name": ""},"description": ""
+      "name": ""},"author": {
+        "@type": "Person",
+        "name": "wang"
+      },"description": ""
   }
   </script><script src="/js/head/color-scheme.min.js"></script></head>
   <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
@@ -82,13 +85,21 @@
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Streamlit让空间数据实现网页可视化</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/python/" class="post-category" title="分类 - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="发布于 2025-04-24 04:29:02"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-04-24">2025-04-24</time></span>&nbsp;<span title="492 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 500 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;</div>
+      wang</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/python/" class="post-category" title="分类 - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="发布于 2025-04-24 04:29:02"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-04-24">2025-04-24</time></span>&nbsp;<span title="491 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 500 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;</div>
     </div><div class="details toc" id="toc-static" data-kept="false">
         <div class="details-summary toc-title">
           <span>目录</span>
           <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
         </div>
         <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#streamlit示例">Streamlit示例</a></li>
+      </ul>
+    </li>
+  </ul>
+
   <ul>
     <li><a href="#本地运行">本地运行</a></li>
     <li><a href="#云部署">云部署</a></li>
@@ -106,17 +117,17 @@
   <a href="#%e7%ae%80%e4%bb%8b" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><p>Streamlit<a href="https://streamlit.io/"target="_blank" rel="external nofollow noopener noreferrer">Streamlit</a> 是一个开源的 Python 框架，用于快速构建和分享数据应用程序，尤其适合数据分析师和数据科学家等非前端开发人员。只需用几行 Python 代码就能将数据脚本变成交互式网页应用。它的特点是能够支持滑块、按钮和下拉框等组件，可以交互；能快速部署页面；与Pandas、matplotlib和OpenCV等库组合使用。
+</h2><p><a href="https://streamlit.io/"target="_blank" rel="external nofollow noopener noreferrer">Streamlit</a> 是一个开源的 Python 框架，用于快速构建和分享数据应用程序，尤其适合数据分析师和数据科学家等非前端开发人员。只需用几行 Python 代码就能将数据脚本变成交互式网页应用。它的特点是能够支持滑块、按钮和下拉框等组件，可以交互；能快速部署页面；与Pandas、matplotlib和OpenCV等库组合使用。<!-- raw HTML omitted -->
 <a href="https://www.aidoczh.com/streamlit/get-started.html"target="_blank" rel="external nofollow noopener noreferrer">Streamlit说明文档</a></p>
 <h2 id="安装" class="heading-element"><span>安装</span>
   <a href="#%e5%ae%89%e8%a3%85" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install streamlit</span></span></code></pre></div><h2 id="streamlit示例" class="heading-element"><span>Streamlit示例</span>
+</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install streamlit</span></span></code></pre></div><h3 id="streamlit示例" class="heading-element"><span>Streamlit示例</span>
   <a href="#streamlit%e7%a4%ba%e4%be%8b" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+</h3><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
@@ -159,15 +170,14 @@
   </a>
 </h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>streamlit run file.py</span></span></code></pre></div><p>运行成功之后，会提供url。</p>
 <blockquote>
-<p>Local URL: http://localhost:8502
-Network URL: http://192.168.1.196:850
-停止运行:<code>Ctrl+C</code></p>
+<p>Local URL: http://localhost:8502<br>
+Network URL: http://192.168.1.196:850</p>
 </blockquote>
 <h2 id="云部署" class="heading-element"><span>云部署</span>
   <a href="#%e4%ba%91%e9%83%a8%e7%bd%b2" class="heading-mark">
     <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
   </a>
-</h2><p>1.在Streamlit Cloud<a href="https://streamlit.io/cloud"target="_blank" rel="external nofollow noopener noreferrer">Streamlit Cloud</a>上免费生成APP
+</h2><p>1.在Streamlit Cloud<a href="https://streamlit.io/cloud"target="_blank" rel="external nofollow noopener noreferrer">Streamlit Cloud</a>上免费生成APP <br>
 2.托管在Google Cloud或者AWS平台上</p>
 <h2 id="streamlit基本语法" class="heading-element"><span>Streamlit基本语法</span>
   <a href="#streamlit%e5%9f%ba%e6%9c%ac%e8%af%ad%e6%b3%95" class="heading-mark">
@@ -261,9 +271,9 @@ Network URL: http://192.168.1.196:850
 <div class="details admonition note open disabled">
   <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-pencil-alt" aria-hidden="true"></i>文件结构</div>
   <div class="details-content">
-    <div class="admonition-content"><p>Main.py/
-├── page1.py
-├── page2.py
+    <div class="admonition-content"><p>Main.py/ <br>
+├── page1.py<br>
+├── page2.py <br>
 └── page3.py</p></div>
   </div>
 </div><h2 id="实例" class="heading-element"><span>实例</span>

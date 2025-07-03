@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Webgis - 标签 - Wang Blog</title>
-    <link>https://example.org/tags/webgis/</link>
+    <link>http://localhost:1313/tags/webgis/</link>
     <description>Wang Blog</description>
     <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
     <language>en-us</language>
     <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
     <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
     <lastBuildDate>Wed, 20 May 2020 06:10:32 +0800</lastBuildDate>
-    <atom:link href="https://example.org/tags/webgis/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/webgis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>利用mapbox分享地图成果</title>
-      <link>https://example.org/posts/mapbox_chaoyang/4e7f5b5/</link>
+      <link>http://localhost:1313/posts/mapbox_chaoyang/4e7f5b5/</link>
       <pubDate>Wed, 20 May 2020 06:10:32 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>https://example.org/posts/mapbox_chaoyang/4e7f5b5/</guid>
-      <category domain="https://example.org/categories/gis/">GIS</category>
+      <guid>http://localhost:1313/posts/mapbox_chaoyang/4e7f5b5/</guid>
+      <category domain="http://localhost:1313/categories/gis/">GIS</category>
       <description>因为疫情原因，为了能方便将成果展示并交流。使用Mapbox制作线上地图并发布分享</description>
     </item>
   </channel>
