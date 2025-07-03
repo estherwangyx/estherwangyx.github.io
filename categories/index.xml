@@ -2,61 +2,68 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories - 分类 - Wang Blog</title>
-    <link>http://localhost:1313/categories/</link>
+    <link>https://example.org/categories/</link>
     <description>Wang Blog</description>
     <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
     <language>en-us</language>
     <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
     <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
-    <lastBuildDate>Fri, 27 Dec 2024 07:39:04 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Apr 2025 04:29:02 +0800</lastBuildDate>
+    <atom:link href="https://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python</title>
+      <link>https://example.org/categories/python/</link>
+      <pubDate>Thu, 24 Apr 2025 04:29:02 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://example.org/categories/python/</guid>
+      <description>Python</description>
+    </item>
+    <item>
+      <title>Pandas</title>
+      <link>https://example.org/categories/pandas/</link>
+      <pubDate>Sun, 19 Jan 2025 12:17:58 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://example.org/categories/pandas/</guid>
+      <description>Pandas</description>
+    </item>
     <item>
       <title>Leaflet</title>
-      <link>http://localhost:1313/categories/leaflet/</link>
+      <link>https://example.org/categories/leaflet/</link>
       <pubDate>Fri, 27 Dec 2024 07:39:04 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/categories/leaflet/</guid>
+      <guid>https://example.org/categories/leaflet/</guid>
       <description>Leaflet</description>
     </item>
     <item>
       <title>GIS</title>
-      <link>http://localhost:1313/categories/gis/</link>
+      <link>https://example.org/categories/gis/</link>
       <pubDate>Tue, 20 Aug 2024 08:13:57 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/categories/gis/</guid>
+      <guid>https://example.org/categories/gis/</guid>
       <description>GIS</description>
     </item>
     <item>
-      <title>Python</title>
-      <link>http://localhost:1313/categories/python/</link>
-      <pubDate>Tue, 20 Aug 2024 08:13:57 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/categories/python/</guid>
-      <description>Python</description>
-    </item>
-    <item>
       <title>Hive</title>
-      <link>http://localhost:1313/categories/hive/</link>
+      <link>https://example.org/categories/hive/</link>
       <pubDate>Sat, 15 Jul 2023 05:09:47 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/categories/hive/</guid>
+      <guid>https://example.org/categories/hive/</guid>
       <description>Hive</description>
     </item>
     <item>
       <title>Spark</title>
-      <link>http://localhost:1313/categories/spark/</link>
+      <link>https://example.org/categories/spark/</link>
       <pubDate>Sat, 15 Jul 2023 05:09:47 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/categories/spark/</guid>
+      <guid>https://example.org/categories/spark/</guid>
       <description>Spark</description>
     </item>
     <item>
       <title>PostGIS</title>
-      <link>http://localhost:1313/categories/postgis/</link>
+      <link>https://example.org/categories/postgis/</link>
       <pubDate>Sat, 15 Oct 2022 01:18:46 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/categories/postgis/</guid>
+      <guid>https://example.org/categories/postgis/</guid>
       <description>PostGIS</description>
     </item>
     <item>
       <title>R语言</title>
-      <link>http://localhost:1313/categories/r%E8%AF%AD%E8%A8%80/</link>
+      <link>https://example.org/categories/r%E8%AF%AD%E8%A8%80/</link>
       <pubDate>Sun, 21 Jun 2020 01:54:49 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/categories/r%E8%AF%AD%E8%A8%80/</guid>
+      <guid>https://example.org/categories/r%E8%AF%AD%E8%A8%80/</guid>
       <description>R语言</description>
     </item>
   </channel>

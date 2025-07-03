@@ -2,118 +2,118 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags - 标签 - Wang Blog</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://example.org/tags/</link>
     <description>Wang Blog</description>
     <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
     <language>en-us</language>
     <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
     <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
-    <lastBuildDate>Fri, 27 Dec 2024 07:39:04 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Apr 2025 04:29:02 +0800</lastBuildDate>
+    <atom:link href="https://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>地图API</title>
-      <link>http://localhost:1313/tags/%E5%9C%B0%E5%9B%BEapi/</link>
+      <title>可视化</title>
+      <link>https://example.org/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
+      <pubDate>Thu, 24 Apr 2025 04:29:02 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://example.org/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
+      <description>可视化</description>
+    </item>
+    <item>
+      <title>数据清洗</title>
+      <link>https://example.org/tags/%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97/</link>
+      <pubDate>Sun, 19 Jan 2025 12:17:58 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
+      <guid>https://example.org/tags/%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97/</guid>
+      <description>数据清洗</description>
+    </item>
+    <item>
+      <title>开源地图</title>
+      <link>https://example.org/tags/%E5%BC%80%E6%BA%90%E5%9C%B0%E5%9B%BE/</link>
       <pubDate>Fri, 27 Dec 2024 07:39:04 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/tags/%E5%9C%B0%E5%9B%BEapi/</guid>
-      <description>地图API</description>
+      <guid>https://example.org/tags/%E5%BC%80%E6%BA%90%E5%9C%B0%E5%9B%BE/</guid>
+      <description>开源地图</description>
     </item>
     <item>
       <title>距离分析</title>
-      <link>http://localhost:1313/tags/%E8%B7%9D%E7%A6%BB%E5%88%86%E6%9E%90/</link>
+      <link>https://example.org/tags/%E8%B7%9D%E7%A6%BB%E5%88%86%E6%9E%90/</link>
       <pubDate>Tue, 20 Aug 2024 08:13:57 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/tags/%E8%B7%9D%E7%A6%BB%E5%88%86%E6%9E%90/</guid>
+      <guid>https://example.org/tags/%E8%B7%9D%E7%A6%BB%E5%88%86%E6%9E%90/</guid>
       <description>距离分析</description>
     </item>
     <item>
       <title>大数据</title>
-      <link>http://localhost:1313/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</link>
+      <link>https://example.org/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</link>
       <pubDate>Sat, 15 Jul 2023 05:09:47 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</guid>
+      <guid>https://example.org/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</guid>
       <description>大数据</description>
     </item>
     <item>
-      <title>可视化</title>
-      <link>http://localhost:1313/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/</link>
-      <pubDate>Wed, 15 Mar 2023 04:56:26 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/</guid>
-      <description>可视化</description>
-    </item>
-    <item>
       <title>Numpy</title>
-      <link>http://localhost:1313/tags/numpy/</link>
+      <link>https://example.org/tags/numpy/</link>
       <pubDate>Thu, 15 Dec 2022 09:25:33 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/tags/numpy/</guid>
+      <guid>https://example.org/tags/numpy/</guid>
       <description>Numpy</description>
     </item>
     <item>
       <title>数据分析</title>
-      <link>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
+      <link>https://example.org/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
       <pubDate>Thu, 15 Dec 2022 09:25:33 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
+      <guid>https://example.org/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</guid>
       <description>数据分析</description>
     </item>
     <item>
       <title>语法</title>
-      <link>http://localhost:1313/tags/%E8%AF%AD%E6%B3%95/</link>
+      <link>https://example.org/tags/%E8%AF%AD%E6%B3%95/</link>
       <pubDate>Sat, 15 Oct 2022 01:18:46 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/tags/%E8%AF%AD%E6%B3%95/</guid>
+      <guid>https://example.org/tags/%E8%AF%AD%E6%B3%95/</guid>
       <description>语法</description>
     </item>
     <item>
       <title>Pandas</title>
-      <link>http://localhost:1313/tags/pandas/</link>
+      <link>https://example.org/tags/pandas/</link>
       <pubDate>Sun, 13 Feb 2022 21:38:28 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/tags/pandas/</guid>
+      <guid>https://example.org/tags/pandas/</guid>
       <description>Pandas</description>
     </item>
     <item>
       <title>Opencv</title>
-      <link>http://localhost:1313/tags/opencv/</link>
+      <link>https://example.org/tags/opencv/</link>
       <pubDate>Mon, 20 Jul 2020 18:15:34 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/tags/opencv/</guid>
+      <guid>https://example.org/tags/opencv/</guid>
       <description>Opencv</description>
     </item>
     <item>
       <title>R</title>
-      <link>http://localhost:1313/tags/r/</link>
+      <link>https://example.org/tags/r/</link>
       <pubDate>Sun, 21 Jun 2020 01:54:49 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/tags/r/</guid>
+      <guid>https://example.org/tags/r/</guid>
       <description>R</description>
     </item>
     <item>
       <title>安装</title>
-      <link>http://localhost:1313/tags/%E5%AE%89%E8%A3%85/</link>
+      <link>https://example.org/tags/%E5%AE%89%E8%A3%85/</link>
       <pubDate>Sun, 21 Jun 2020 01:54:49 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/tags/%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://example.org/tags/%E5%AE%89%E8%A3%85/</guid>
       <description>安装</description>
     </item>
     <item>
       <title>Mapbox</title>
-      <link>http://localhost:1313/tags/mapbox/</link>
+      <link>https://example.org/tags/mapbox/</link>
       <pubDate>Wed, 20 May 2020 06:10:32 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/tags/mapbox/</guid>
+      <guid>https://example.org/tags/mapbox/</guid>
       <description>Mapbox</description>
     </item>
     <item>
       <title>Webgis</title>
-      <link>http://localhost:1313/tags/webgis/</link>
+      <link>https://example.org/tags/webgis/</link>
       <pubDate>Wed, 20 May 2020 06:10:32 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/tags/webgis/</guid>
+      <guid>https://example.org/tags/webgis/</guid>
       <description>Webgis</description>
     </item>
     <item>
       <title>Arcgis</title>
-      <link>http://localhost:1313/tags/arcgis/</link>
+      <link>https://example.org/tags/arcgis/</link>
       <pubDate>Tue, 21 Apr 2020 05:38:45 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/tags/arcgis/</guid>
+      <guid>https://example.org/tags/arcgis/</guid>
       <description>Arcgis</description>
-    </item>
-    <item>
-      <title>可达性</title>
-      <link>http://localhost:1313/tags/%E5%8F%AF%E8%BE%BE%E6%80%A7/</link>
-      <pubDate>Sat, 07 Mar 2020 00:35:24 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/tags/%E5%8F%AF%E8%BE%BE%E6%80%A7/</guid>
-      <description>可达性</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据清洗 - 标签 - Wang Blog</title>
+    <link>https://example.org/tags/%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97/</link>
+    <description>Wang Blog</description>
+    <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
+    <language>en-us</language>
+    <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
+    <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
+    <lastBuildDate>Sun, 19 Jan 2025 12:17:58 +0800</lastBuildDate>
+    <atom:link href="https://example.org/tags/%E6%95%B0%E6%8D%AE%E6%B8%85%E6%B4%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用 Pandas 清洗空间属性表，写了个自动化脚本分享下</title>
+      <link>https://example.org/posts/23f98b4/</link>
+      <pubDate>Sun, 19 Jan 2025 12:17:58 +0800</pubDate>
+      <guid>https://example.org/posts/23f98b4/</guid>
+      <category domain="https://example.org/categories/pandas/">Pandas</category>
+      <category domain="https://example.org/categories/python/">Python</category>
+      <description>用 Pandas 清洗空间属性表，写了个自动化脚本分享下</description>
+    </item>
+  </channel>
+</rss>

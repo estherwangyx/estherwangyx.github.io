@@ -2,55 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GIS - 分类 - Wang Blog</title>
-    <link>http://localhost:1313/categories/gis/</link>
+    <link>https://example.org/categories/gis/</link>
     <description>Wang Blog</description>
     <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
     <language>en-us</language>
     <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
     <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
     <lastBuildDate>Tue, 20 Aug 2024 08:13:57 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/gis/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/categories/gis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>利用Python构建等时圈</title>
-      <link>http://localhost:1313/posts/b8896e1/</link>
+      <link>https://example.org/posts/b8896e1/</link>
       <pubDate>Tue, 20 Aug 2024 08:13:57 +0800</pubDate>
-      <guid>http://localhost:1313/posts/b8896e1/</guid>
-      <category domain="http://localhost:1313/categories/gis/">GIS</category>
-      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <guid>https://example.org/posts/b8896e1/</guid>
+      <category domain="https://example.org/categories/gis/">GIS</category>
+      <category domain="https://example.org/categories/python/">Python</category>
       <description>&lt;p&gt;等时线表示从特定点在一定时间内可以到达的地理区域。例如，在步行距离的背景下，等时线是城市规划师等专业人士的有用工具，旨在了解特定区域内的可达性和连通性。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Python批量输出地图，且一直保持底图可见</title>
-      <link>http://localhost:1313/posts/387d48e/</link>
-      <pubDate>Wed, 15 Mar 2023 04:56:26 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/posts/387d48e/</guid>
-      <category domain="http://localhost:1313/categories/python/">Python</category>
-      <category domain="http://localhost:1313/categories/gis/">GIS</category>
-      <description>在固定某几个图层可见情况下，替换其他图层，输出地图。</description>
-    </item>
-    <item>
       <title>利用mapbox分享地图成果</title>
-      <link>http://localhost:1313/posts/mapbox_chaoyang/4e7f5b5/</link>
+      <link>https://example.org/posts/mapbox_chaoyang/4e7f5b5/</link>
       <pubDate>Wed, 20 May 2020 06:10:32 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/posts/mapbox_chaoyang/4e7f5b5/</guid>
-      <category domain="http://localhost:1313/categories/gis/">GIS</category>
+      <guid>https://example.org/posts/mapbox_chaoyang/4e7f5b5/</guid>
+      <category domain="https://example.org/categories/gis/">GIS</category>
       <description>因为疫情原因，为了能方便将成果展示并交流。使用Mapbox制作线上地图并发布分享</description>
     </item>
     <item>
       <title>使用模型构建器批量提取栅格</title>
-      <link>http://localhost:1313/posts/modelbuilder_extract_raster/6a13019/</link>
+      <link>https://example.org/posts/modelbuilder_extract_raster/6a13019/</link>
       <pubDate>Tue, 21 Apr 2020 05:38:45 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/posts/modelbuilder_extract_raster/6a13019/</guid>
-      <category domain="http://localhost:1313/categories/gis/">GIS</category>
+      <guid>https://example.org/posts/modelbuilder_extract_raster/6a13019/</guid>
+      <category domain="https://example.org/categories/gis/">GIS</category>
       <description>使用Arcgis中的模型构建器工具批量提取栅格</description>
-    </item>
-    <item>
-      <title>步行指数计算方法</title>
-      <link>http://localhost:1313/posts/ab382b3/</link>
-      <pubDate>Sat, 07 Mar 2020 00:35:24 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/posts/ab382b3/</guid>
-      <category domain="http://localhost:1313/categories/gis/">GIS</category>
-      <description>步行指数计算方法</description>
     </item>
   </channel>
 </rss>

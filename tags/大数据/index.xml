@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>大数据 - 标签 - Wang Blog</title>
-    <link>http://localhost:1313/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</link>
+    <link>https://example.org/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</link>
     <description>Wang Blog</description>
     <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
     <language>en-us</language>
     <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
     <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
     <lastBuildDate>Sat, 15 Jul 2023 05:09:47 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hive与Spark的关系</title>
-      <link>http://localhost:1313/posts/f9086ac/</link>
+      <link>https://example.org/posts/f9086ac/</link>
       <pubDate>Sat, 15 Jul 2023 05:09:47 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/posts/f9086ac/</guid>
-      <category domain="http://localhost:1313/categories/hive/">Hive</category>
-      <category domain="http://localhost:1313/categories/spark/">Spark</category>
+      <guid>https://example.org/posts/f9086ac/</guid>
+      <category domain="https://example.org/categories/hive/">Hive</category>
+      <category domain="https://example.org/categories/spark/">Spark</category>
       <description>从概念，区别，要素和表现等几个方面对Hive和Spark的关系进行分析</description>
     </item>
   </channel>

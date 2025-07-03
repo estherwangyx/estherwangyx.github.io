@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en-us">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <meta name="robots" content="noodp" />
+    <title>Streamlit让空间数据实现网页可视化 - Wang Blog</title><meta name="author" content="">
+<meta name="description" content="介绍Streamlit快速构建网页APP的方法
+"><meta name="keywords" content='可视化'>
+  <meta itemprop="name" content="Streamlit让空间数据实现网页可视化">
+  <meta itemprop="description" content="介绍Streamlit快速构建网页APP的方法">
+  <meta itemprop="datePublished" content="2025-04-24T04:29:02+08:00">
+  <meta itemprop="dateModified" content="2025-04-24T04:29:02+08:00">
+  <meta itemprop="wordCount" content="492">
+  <meta itemprop="keywords" content="可视化"><meta property="og:url" content="https://example.org/posts/streamlit_visual/9283b61/">
+  <meta property="og:site_name" content="Wang Blog">
+  <meta property="og:title" content="Streamlit让空间数据实现网页可视化">
+  <meta property="og:description" content="介绍Streamlit快速构建网页APP的方法">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-04-24T04:29:02+08:00">
+    <meta property="article:modified_time" content="2025-04-24T04:29:02+08:00">
+    <meta property="article:tag" content="可视化">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Streamlit让空间数据实现网页可视化">
+  <meta name="twitter:description" content="介绍Streamlit快速构建网页APP的方法">
+<meta name="application-name" content="FixIt">
+<meta name="apple-mobile-web-app-title" content="FixIt"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="canonical" type="text/html" href="https://example.org/posts/streamlit_visual/9283b61/" title="Streamlit让空间数据实现网页可视化 - Wang Blog" /><link rel="prev" type="text/html" href="https://example.org/posts/23f98b4/" title="用 Pandas 清洗空间属性表，写了个自动化脚本分享下" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Streamlit让空间数据实现网页可视化",
+    "inLanguage": "en-us",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https:\/\/example.org\/posts\/streamlit_visual\/9283b61\/"
+    },"genre": "posts","keywords": "可视化","wordcount":  492 ,
+    "url": "https:\/\/example.org\/posts\/streamlit_visual\/9283b61\/","datePublished": "2025-04-24T04:29:02+08:00","dateModified": "2025-04-24T04:29:02+08:00","publisher": {
+      "@type": "Organization",
+      "name": ""},"description": ""
+  }
+  </script><script src="/js/head/color-scheme.min.js"></script></head>
+  <body data-header-desktop="sticky" data-header-mobile="auto"><div class="wrapper" data-page-style="normal"><header class="desktop animate__faster" id="header-desktop">
+  <div class="header-wrapper">
+    <div class="header-title">
+      <a href="/" title="Wang Blog"><span class="header-title-text">Esther Wang&#39;s Blog</span></a><span class="typeit header-subtitle"><template></template></span></div>
+    <nav>
+      <ul class="menu"><li class="menu-item">
+              <a class="menu-link" href="/categories/"><i class="fa-solid fa-layer-group fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item">
+              <a class="menu-link" href="/tags/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item">
+              <a class="menu-link" href="/archives/"><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item">
+              <a class="menu-link" href="/about/"><i class="fa-solid fa-user-large fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item delimiter"></li><li class="menu-item theme-switch" title="切换主题">
+          <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+        </li></ul>
+    </nav>
+  </div>
+</header><header class="mobile animate__faster" id="header-mobile">
+  <div class="header-container">
+    <div class="header-wrapper">
+      <div class="header-title">
+        <a href="/" title="Wang Blog"><span class="header-title-text">Esther Wang&#39;s Blog</span></a><span class="typeit header-subtitle"><template></template></span></div>
+      <div class="menu-toggle" id="menu-toggle-mobile">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <nav>
+      <ul class="menu" id="menu-mobile"><li class="menu-item"><a class="menu-link" href="/categories/"><i class="fa-solid fa-layer-group fa-fw fa-sm" aria-hidden="true"></i> 分类</a></li><li class="menu-item"><a class="menu-link" href="/tags/"><i class="fa-solid fa-tags fa-fw fa-sm" aria-hidden="true"></i> 标签</a></li><li class="menu-item"><a class="menu-link" href="/archives/"><i class="fa-solid fa-archive fa-fw fa-sm" aria-hidden="true"></i> 归档</a></li><li class="menu-item"><a class="menu-link" href="/about/"><i class="fa-solid fa-user-large fa-fw fa-sm" aria-hidden="true"></i> 关于</a></li><li class="menu-item menu-system">
+          <span class="menu-system-item theme-switch" title="切换主题"><i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i></span></li>
+      </ul>
+    </nav>
+  </div>
+</header><main class="container"><aside class="aside-collection animate__animated animate__fadeIn animate__faster" aria-label="合集"></aside>
+
+  <article class="page single">
+    <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span title="转载" class="icon-repost"><i class="fa-solid fa-share fa-fw" aria-hidden="true"></i></span><span>Streamlit让空间数据实现网页可视化</span>
+      </h1></div><div class="post-meta">
+      <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
+      Anonymous</span></span><span class="post-included-in">&nbsp;收录于 <a href="/categories/python/" class="post-category" title="分类 - Python"><i class="fa-regular fa-folder fa-fw" aria-hidden="true"></i> Python</a></span></div><div class="post-meta-line"><span title="发布于 2025-04-24 04:29:02"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2025-04-24">2025-04-24</time></span>&nbsp;<span title="492 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 500 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 3 分钟</span>&nbsp;</div>
+    </div><div class="details toc" id="toc-static" data-kept="false">
+        <div class="details-summary toc-title">
+          <span>目录</span>
+          <span><i class="details-icon fa-solid fa-angle-right" aria-hidden="true"></i></span>
+        </div>
+        <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#本地运行">本地运行</a></li>
+    <li><a href="#云部署">云部署</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#主页面">主页面</a></li>
+    <li><a href="#地图">地图</a></li>
+    <li><a href="#图表展示">图表展示</a></li>
+    <li><a href="#热力地图">热力地图</a></li>
+  </ul>
+</nav></div>
+      </div><div class="content" id="content"><p>介绍Streamlit快速构建网页APP的方法</p>
+<h2 id="简介" class="heading-element"><span>简介</span>
+  <a href="#%e7%ae%80%e4%bb%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Streamlit<a href="https://streamlit.io/"target="_blank" rel="external nofollow noopener noreferrer">Streamlit</a> 是一个开源的 Python 框架，用于快速构建和分享数据应用程序，尤其适合数据分析师和数据科学家等非前端开发人员。只需用几行 Python 代码就能将数据脚本变成交互式网页应用。它的特点是能够支持滑块、按钮和下拉框等组件，可以交互；能快速部署页面；与Pandas、matplotlib和OpenCV等库组合使用。
+<a href="https://www.aidoczh.com/streamlit/get-started.html"target="_blank" rel="external nofollow noopener noreferrer">Streamlit说明文档</a></p>
+<h2 id="安装" class="heading-element"><span>安装</span>
+  <a href="#%e5%ae%89%e8%a3%85" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install streamlit</span></span></code></pre></div><h2 id="streamlit示例" class="heading-element"><span>Streamlit示例</span>
+  <a href="#streamlit%e7%a4%ba%e4%be%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> streamlit <span style="color:#66d9ef">as</span> st
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>st<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;我的第一个 Streamlit 应用&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>name <span style="color:#f92672">=</span> st<span style="color:#f92672">.</span>text_input(<span style="color:#e6db74">&#34;请输入你的名字：&#34;</span>)
+</span></span><span style="display:flex;"><span>st<span style="color:#f92672">.</span>write(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;你好，</span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">！&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame({
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;列A&#39;</span>: [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;列B&#39;</span>: [<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>]
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>st<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;这是一个表格：&#34;</span>)
+</span></span><span style="display:flex;"><span>st<span style="color:#f92672">.</span>dataframe(data)</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="运行方式" class="heading-element"><span>运行方式</span>
+  <a href="#%e8%bf%90%e8%a1%8c%e6%96%b9%e5%bc%8f" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><h2 id="本地运行" class="heading-element"><span>本地运行</span>
+  <a href="#%e6%9c%ac%e5%9c%b0%e8%bf%90%e8%a1%8c" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>streamlit run file.py</span></span></code></pre></div><p>运行成功之后，会提供url。</p>
+<blockquote>
+<p>Local URL: http://localhost:8502
+Network URL: http://192.168.1.196:850
+停止运行:<code>Ctrl+C</code></p>
+</blockquote>
+<h2 id="云部署" class="heading-element"><span>云部署</span>
+  <a href="#%e4%ba%91%e9%83%a8%e7%bd%b2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>1.在Streamlit Cloud<a href="https://streamlit.io/cloud"target="_blank" rel="external nofollow noopener noreferrer">Streamlit Cloud</a>上免费生成APP
+2.托管在Google Cloud或者AWS平台上</p>
+<h2 id="streamlit基本语法" class="heading-element"><span>Streamlit基本语法</span>
+  <a href="#streamlit%e5%9f%ba%e6%9c%ac%e8%af%ad%e6%b3%95" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><table>
+  <thead>
+      <tr>
+          <th>文本内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>st.write(&ldquo;Most objects&rdquo;) # df, err, func, keras!</td>
+      </tr>
+      <tr>
+          <td>st.write([&ldquo;st&rdquo;, &ldquo;is &lt;&rdquo;, 3])</td>
+      </tr>
+      <tr>
+          <td>st.write_stream(my_generator)</td>
+      </tr>
+      <tr>
+          <td>st.write_stream(my_llm_stream)</td>
+      </tr>
+      <tr>
+          <td>st.text(&ldquo;Fixed width text&rdquo;)</td>
+      </tr>
+      <tr>
+          <td>st.markdown(&quot;<em>Markdown</em>&quot;)</td>
+      </tr>
+      <tr>
+          <td>st.latex(r&quot;&quot;&quot; e^{i\pi} + 1 = 0 &ldquo;&rdquo;&quot;)</td>
+      </tr>
+      <tr>
+          <td>st.title(&ldquo;My title&rdquo;)</td>
+      </tr>
+      <tr>
+          <td>st.header(&ldquo;My header&rdquo;)</td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th>图表内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>st.area_chart(df)</td>
+      </tr>
+      <tr>
+          <td>st.bar_chart(df)</td>
+      </tr>
+      <tr>
+          <td>st.bar_chart(df, horizontal=True)</td>
+      </tr>
+      <tr>
+          <td>st.line_chart(df)</td>
+      </tr>
+      <tr>
+          <td>st.map(df)</td>
+      </tr>
+      <tr>
+          <td>st.scatter_chart(df)</td>
+      </tr>
+      <tr>
+          <td>st.altair_chart(chart)</td>
+      </tr>
+      <tr>
+          <td>st.bokeh_chart(fig)</td>
+      </tr>
+  </tbody>
+</table>
+<p>参考文本<a href="https://docs.streamlit.io/develop/quick-reference/cheat-sheet"target="_blank" rel="external nofollow noopener noreferrer">Streamlit API </a></p>
+<h2 id="网页框架" class="heading-element"><span>网页框架</span>
+  <a href="#%e7%bd%91%e9%a1%b5%e6%a1%86%e6%9e%b6" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Streamlit能构建网页的一些基本组成，例如：标题、网页头部、标签等。Streamlit相较于JS，它能够直接生成侧边栏，不用设置侧边与主内容的布局，只需一行代码便可分隔内容布局。而且在Streamlit构建的页面中能自由的改变侧栏宽度，也可以一键收起。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>st<span style="color:#f92672">.</span>sidebar<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Home&#39;</span>)
+</span></span><span style="display:flex;"><span>st<span style="color:#f92672">.</span>sidebar<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#39;侧边栏内容&#39;</span>)</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过对多个运行文件的布局构建，能实现多个功能在同一网站内实现。</p>
+<div class="details admonition note open disabled">
+  <div class="details-summary admonition-title"><i class="icon fa-fw fa-solid fa-pencil-alt" aria-hidden="true"></i>文件结构</div>
+  <div class="details-content">
+    <div class="admonition-content"><p>Main.py/
+├── page1.py
+├── page2.py
+└── page3.py</p></div>
+  </div>
+</div><h2 id="实例" class="heading-element"><span>实例</span>
+  <a href="#%e5%ae%9e%e4%be%8b" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>本案例<a href="https://long-sunset-7203.ploomber.app/"target="_blank" rel="external nofollow noopener noreferrer">APP</a>以纽约市相关数据为例展示了一些Stremalit的可视化功能。
+<a href="https://long-sunset-7203.ploomber.app/Map"target="_blank" rel="external nofollow noopener noreferrer"><img loading="lazy" src="../page_screen.png" alt="pic" srcset="../page_screen.png?size=small, ../page_screen.png?size=medium 1.5x, ../page_screen.png?size=large 2x" data-title="pic" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></a>
+<a href="https://long-sunset-7203.ploomber.app/Heat_Map"target="_blank" rel="external nofollow noopener noreferrer"><img loading="lazy" src="../page_screen1.jpg" alt="pic" srcset="../page_screen1.jpg?size=small, ../page_screen1.jpg?size=medium 1.5x, ../page_screen1.jpg?size=large 2x" data-title="pic" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></a></p>
+<h2 id="主页面" class="heading-element"><span>主页面</span>
+  <a href="#%e4%b8%bb%e9%a1%b5%e9%9d%a2" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>主页编码中包含基本简介及结构布局设置。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> streamlit <span style="color:#66d9ef">as</span> st
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#基本结构</span>
+</span></span><span style="display:flex;"><span>st<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;About&#39;</span>)
+</span></span><span style="display:flex;"><span>st<span style="color:#f92672">.</span>set_page_config(page_icon<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;📑&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#子页面关联</span>
+</span></span><span style="display:flex;"><span>page1 <span style="color:#f92672">=</span> st<span style="color:#f92672">.</span>Page(<span style="color:#e6db74">&#34;pages/page1.py&#34;</span>, title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;页面1&#34;</span>)
+</span></span><span style="display:flex;"><span>page2 <span style="color:#f92672">=</span> st<span style="color:#f92672">.</span>Page(<span style="color:#e6db74">&#34;pages/page2.py&#34;</span>, title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;页面2&#34;</span>)
+</span></span><span style="display:flex;"><span>page3 <span style="color:#f92672">=</span> st<span style="color:#f92672">.</span>Page(<span style="color:#e6db74">&#34;pages/page3.py&#34;</span>, title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;页面3&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>st<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;内容balabala~~~&#34;</span>)</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="地图" class="heading-element"><span>地图</span>
+  <a href="#%e5%9c%b0%e5%9b%be" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Streamlit通过<code>st.map()</code>提供地图显示功能，当然也支持Leafmap和Pydeck等第三方GIS库显示地图。案例通过Leafmap库展示平面地图与影像地图的对比。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> folium
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> leafmap.foliumap <span style="color:#66d9ef">as</span> leafmap
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> streamlit <span style="color:#66d9ef">as</span> st
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#页面设置</span>
+</span></span><span style="display:flex;"><span>st<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#34;地图&#34;</span>)
+</span></span><span style="display:flex;"><span>st<span style="color:#f92672">.</span>set_page_config(page_icon<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;🗺️&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#分割地图视图窗</span>
+</span></span><span style="display:flex;"><span>m <span style="color:#f92672">=</span> leafmap<span style="color:#f92672">.</span>Map(height<span style="color:#f92672">=</span><span style="color:#ae81ff">800</span>,center<span style="color:#f92672">=</span>[<span style="color:#ae81ff">40.7639</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">73.9794</span>], zoom<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>)
+</span></span><span style="display:flex;"><span>m<span style="color:#f92672">.</span>split_map(left_layer<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;OpenStreetMap&#34;</span>, right_layer<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Esri.WorldImagery&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#地图转化至Streamlit</span>
+</span></span><span style="display:flex;"><span>m_streamlit <span style="color:#f92672">=</span> m<span style="color:#f92672">.</span>to_streamlit(<span style="color:#ae81ff">800</span>, <span style="color:#ae81ff">600</span>)</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="图表展示" class="heading-element"><span>图表展示</span>
+  <a href="#%e5%9b%be%e8%a1%a8%e5%b1%95%e7%a4%ba" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>Streamlit支持多种不同的图表库，库中最基础的库是Matplotlib。以及一些交互式图表库。Streamlit原生的图表类型，例如<code>st.line_chart</code>和<code>st.area_chart</code></p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> streamlit <span style="color:#66d9ef">as</span> st
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> plotly <span style="color:#66d9ef">as</span> pt
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> plotly.graph_objects <span style="color:#66d9ef">as</span> go
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>st<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;人口概况&#39;</span>)
+</span></span><span style="display:flex;"><span>st<span style="color:#f92672">.</span>set_page_config(page_icon<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;📊&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>census_df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;./pages/census.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Borough <span style="color:#f92672">=</span> census_df[<span style="color:#e6db74">&#39;Borough&#39;</span>]
+</span></span><span style="display:flex;"><span>Total_Pop <span style="color:#f92672">=</span> census_df[<span style="color:#e6db74">&#39;TotalPop&#39;</span>]
+</span></span><span style="display:flex;"><span>fig1 <span style="color:#f92672">=</span> go<span style="color:#f92672">.</span>Figure([go<span style="color:#f92672">.</span>Bar(x<span style="color:#f92672">=</span>Borough, y<span style="color:#f92672">=</span>Total_Pop, marker_color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;#A2BFE1&#39;</span>)])
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#fig.show()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Women <span style="color:#f92672">=</span>census_df[<span style="color:#e6db74">&#39;Women&#39;</span>]
+</span></span><span style="display:flex;"><span>Men <span style="color:#f92672">=</span>  census_df[<span style="color:#e6db74">&#39;Men&#39;</span>]
+</span></span><span style="display:flex;"><span>fig2 <span style="color:#f92672">=</span> go<span style="color:#f92672">.</span>Figure(data<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>    go<span style="color:#f92672">.</span>Bar(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Women&#39;</span>, x<span style="color:#f92672">=</span>Borough, y<span style="color:#f92672">=</span>Women, marker_color<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;#EB89B5&#39;</span>),
+</span></span><span style="display:flex;"><span>    go<span style="color:#f92672">.</span>Bar(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Men&#39;</span>, x<span style="color:#f92672">=</span>Borough, y<span style="color:#f92672">=</span>Men, marker_color<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#3764BE&#34;</span>)
+</span></span><span style="display:flex;"><span>])
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 更改barmode为组合型</span>
+</span></span><span style="display:flex;"><span>fig2<span style="color:#f92672">.</span>update_layout(barmode<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;group&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Hispanic <span style="color:#f92672">=</span> census_df[<span style="color:#e6db74">&#39;Hispanic&#39;</span>]
+</span></span><span style="display:flex;"><span>White <span style="color:#f92672">=</span> census_df[<span style="color:#e6db74">&#39;White&#39;</span>]
+</span></span><span style="display:flex;"><span>Black <span style="color:#f92672">=</span> census_df[<span style="color:#e6db74">&#39;Black&#39;</span>]
+</span></span><span style="display:flex;"><span>Asian <span style="color:#f92672">=</span> census_df[<span style="color:#e6db74">&#39;Asian&#39;</span>]
+</span></span><span style="display:flex;"><span>Native <span style="color:#f92672">=</span> census_df[<span style="color:#e6db74">&#39;Native&#39;</span>]
+</span></span><span style="display:flex;"><span>fig3 <span style="color:#f92672">=</span> go<span style="color:#f92672">.</span>Figure(data<span style="color:#f92672">=</span>[
+</span></span><span style="display:flex;"><span>    go<span style="color:#f92672">.</span>Bar(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Hispanic&#39;</span>, x<span style="color:#f92672">=</span>Borough, y<span style="color:#f92672">=</span>Hispanic),
+</span></span><span style="display:flex;"><span>    go<span style="color:#f92672">.</span>Bar(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;White&#39;</span>, x<span style="color:#f92672">=</span>Borough, y<span style="color:#f92672">=</span>White),
+</span></span><span style="display:flex;"><span>    go<span style="color:#f92672">.</span>Bar(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Black&#39;</span>, x<span style="color:#f92672">=</span>Borough, y<span style="color:#f92672">=</span>Black),
+</span></span><span style="display:flex;"><span>    go<span style="color:#f92672">.</span>Bar(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Asian&#39;</span>, x<span style="color:#f92672">=</span>Borough, y<span style="color:#f92672">=</span>Asian),
+</span></span><span style="display:flex;"><span>    go<span style="color:#f92672">.</span>Bar(name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;Native&#39;</span>, x<span style="color:#f92672">=</span>Borough, y<span style="color:#f92672">=</span>Native)
+</span></span><span style="display:flex;"><span>])
+</span></span><span style="display:flex;"><span>fig3<span style="color:#f92672">.</span>update_layout(barmode<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;stack&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>tab1, tab2, tab3 <span style="color:#f92672">=</span> st<span style="color:#f92672">.</span>tabs([<span style="color:#e6db74">&#34;总人口&#34;</span>, <span style="color:#e6db74">&#34;性别数量&#34;</span>,<span style="color:#e6db74">&#34;各种族人口数量&#34;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> tab1:
+</span></span><span style="display:flex;"><span>    st<span style="color:#f92672">.</span>plotly_chart(fig1, theme<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;streamlit&#34;</span>, use_container_width<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> tab2:
+</span></span><span style="display:flex;"><span>    st<span style="color:#f92672">.</span>plotly_chart(fig2, theme<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;streamlit&#34;</span>, use_container_width<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">with</span> tab3:
+</span></span><span style="display:flex;"><span>    st<span style="color:#f92672">.</span>plotly_chart(fig3, theme<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;streamlit&#34;</span>, use_container_width<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="热力地图" class="heading-element"><span>热力地图</span>
+  <a href="#%e7%83%ad%e5%8a%9b%e5%9c%b0%e5%9b%be" class="heading-mark">
+    <svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg>
+  </a>
+</h2><p>很多情况下对地图展示的要求不仅限于BaseMap的显示，还包括点线面的矢量数据和栅格数据的数据分析结果展示。本次采用Pydeck库对矢量数据进行核密度分析生成热力图。</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pydeck <span style="color:#66d9ef">as</span> pdk
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> streamlit <span style="color:#66d9ef">as</span> st
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#页面设置</span>
+</span></span><span style="display:flex;"><span>st<span style="color:#f92672">.</span>set_page_config(page_title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Heat Map&#34;</span>,page_icon<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;📍&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#内容简介</span>
+</span></span><span style="display:flex;"><span>st<span style="color:#f92672">.</span>title(
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;热力图&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#数据初始化部分</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;./pages/hotspot-locations.csv&#34;</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(data)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>view <span style="color:#f92672">=</span> pdk<span style="color:#f92672">.</span>data_utils<span style="color:#f92672">.</span>compute_view(df[[<span style="color:#e6db74">&#34;Latitude&#34;</span>, <span style="color:#e6db74">&#34;Longitude&#34;</span>]])
+</span></span><span style="display:flex;"><span>view<span style="color:#f92672">.</span>zoom <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>st<span style="color:#f92672">.</span>pydeck_chart(
+</span></span><span style="display:flex;"><span>    pdk<span style="color:#f92672">.</span>Deck(
+</span></span><span style="display:flex;"><span>        layers<span style="color:#f92672">=</span>pdk<span style="color:#f92672">.</span>Layer(      <span style="color:#75715e">#生成热力图</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;HeatmapLayer&#34;</span>,
+</span></span><span style="display:flex;"><span>    data<span style="color:#f92672">=</span>df,
+</span></span><span style="display:flex;"><span>    opacity<span style="color:#f92672">=</span><span style="color:#ae81ff">0.9</span>,
+</span></span><span style="display:flex;"><span>    radiusPixels<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>,
+</span></span><span style="display:flex;"><span>    get_position<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;Longitude&#34;</span>,<span style="color:#e6db74">&#34;Latitude&#34;</span>],
+</span></span><span style="display:flex;"><span>    get_weight<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Weight&#34;</span>,
+</span></span><span style="display:flex;"><span>    pickable<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>), 
+</span></span><span style="display:flex;"><span>             initial_view_state<span style="color:#f92672">=</span>pdk<span style="color:#f92672">.</span>ViewState(    <span style="color:#75715e">#设置底图</span>
+</span></span><span style="display:flex;"><span>    longitude<span style="color:#f92672">=-</span><span style="color:#ae81ff">73.9794</span>,
+</span></span><span style="display:flex;"><span>    latitude<span style="color:#f92672">=</span><span style="color:#ae81ff">40.7639</span>,
+</span></span><span style="display:flex;"><span>    zoom<span style="color:#f92672">=</span><span style="color:#ae81ff">11</span>,
+</span></span><span style="display:flex;"><span>    min_zoom<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>,
+</span></span><span style="display:flex;"><span>    max_zoom<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>,
+</span></span><span style="display:flex;"><span>    pitch<span style="color:#f92672">=</span><span style="color:#ae81ff">40.5</span>,
+</span></span><span style="display:flex;"><span>    bearing<span style="color:#f92672">=-</span><span style="color:#ae81ff">27.36</span>,
+</span></span><span style="display:flex;"><span>    pickable<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>,
+</span></span><span style="display:flex;"><span>),
+</span></span><span style="display:flex;"><span>             map_style<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;light&#39;</span>,
+</span></span><span style="display:flex;"><span>             tooltip<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span>            )
+</span></span><span style="display:flex;"><span>)</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+  <div class="post-info">
+    <div class="post-info-line">
+      <div class="post-info-mod">
+        <span title="更新于 2025-04-24 04:29:02">更新于 2025-04-24&nbsp;</span>
+      </div></div><div class="post-info-line">
+        <div class="post-info-md"></div>
+        <div class="post-info-share">
+          <span><a href="javascript:void(0);" title="分享到 X" data-sharer="twitter" data-url="https://example.org/posts/streamlit_visual/9283b61/" data-title="Streamlit让空间数据实现网页可视化" data-hashtags="可视化"><i class="fa-brands fa-x-twitter fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://example.org/posts/streamlit_visual/9283b61/" data-hashtag="可视化"><i class="fa-brands fa-facebook-square fa-fw" aria-hidden="true"></i></a>
+  <a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://example.org/posts/streamlit_visual/9283b61/" data-title="Streamlit让空间数据实现网页可视化"><i class="fa-brands fa-weibo fa-fw" aria-hidden="true"></i></a>
+  </span>
+        </div>
+      </div></div>
+
+  <div class="post-info-more">
+    <section class="post-tags"><i class="fa-solid fa-tags fa-fw me-1" aria-hidden="true"></i><a href="/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/" class="post-tag" title="标签 - 可视化">可视化</a></section>
+    <section>
+      <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+    </section>
+  </div><div class="post-nav"><a href="/posts/23f98b4/" class="post-nav-item" rel="prev" title="用 Pandas 清洗空间属性表，写了个自动化脚本分享下"><i class="fa-solid fa-angle-left fa-fw" aria-hidden="true"></i>用 Pandas 清洗空间属性表，写了个自动化脚本分享下</a></div>
+</div>
+</article>
+
+  <aside class="toc" id="toc-auto" aria-label="目录"><h2 class="toc-title">目录&nbsp;<i class="toc-icon fa-solid fa-angle-down fa-fw" aria-hidden="true"></i></h2>
+      <div class="toc-content" id="toc-content-auto"></div></aside></main><footer class="footer">
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.142.0"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.17-8b402129"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+        </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
+            <span itemprop="copyrightYear">2025</span><span class="author" itemprop="copyrightHolder">
+              <a href="/">wangyx</a></span></div></div>
+  </footer></div><div class="widgets"><div class="fixed-buttons animate__faster d-none"><div class="fixed-button back-to-top" role="button" aria-label="回到顶部"><i class="fa-solid fa-arrow-up fa-fw" aria-hidden="true"></i><span class="variant-numeric d-none">0%</span>
+        </div></div><div id="mask"></div><noscript>
+    <div class="noscript-warning">该网站在启用 JavaScript 的情况下效果最佳。</div>
+  </noscript>
+</div><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script src="/lib/twemoji/twemoji.min.js" defer></script><script src="/lib/sharer/sharer.min.js" async defer></script><script src="/lib/typeit/index.umd.js" defer></script><script src="/lib/cookieconsent/cookieconsent.min.js" defer></script><script>window.config={"code":{"copyTitle":"复制到剪贴板","editLockTitle":"锁定可编辑代码块","editUnLockTitle":"解锁可编辑代码块","editable":true,"maxShownLines":50},"comment":{"enable":false},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验。"},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"twemoji":true,"typeit":{"cursorChar":" ","cursorSpeed":1000,"duration":-1,"loop":false,"speed":100},"version":"v0.3.17-8b402129"};</script><script src="/js/theme.min.js" defer></script></body>
+</html>

@@ -2,70 +2,78 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python - 分类 - Wang Blog</title>
-    <link>http://localhost:1313/categories/python/</link>
+    <link>https://example.org/categories/python/</link>
     <description>Wang Blog</description>
     <generator>Hugo 0.142.0 &amp; FixIt v0.3.17-8b402129</generator>
     <language>en-us</language>
     <managingEditor>wangyixuanang@163.com (wangyx)</managingEditor>
     <webMaster>wangyixuanang@163.com (wangyx)</webMaster>
-    <lastBuildDate>Tue, 20 Aug 2024 08:13:57 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Apr 2025 04:29:02 +0800</lastBuildDate>
+    <atom:link href="https://example.org/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Streamlit让空间数据实现网页可视化</title>
+      <link>https://example.org/posts/streamlit_visual/9283b61/</link>
+      <pubDate>Thu, 24 Apr 2025 04:29:02 +0800</pubDate>
+      <guid>https://example.org/posts/streamlit_visual/9283b61/</guid>
+      <category domain="https://example.org/categories/python/">Python</category>
+      <description>&lt;p&gt;介绍Streamlit快速构建网页APP的方法&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>用 Pandas 清洗空间属性表，写了个自动化脚本分享下</title>
+      <link>https://example.org/posts/23f98b4/</link>
+      <pubDate>Sun, 19 Jan 2025 12:17:58 +0800</pubDate>
+      <guid>https://example.org/posts/23f98b4/</guid>
+      <category domain="https://example.org/categories/pandas/">Pandas</category>
+      <category domain="https://example.org/categories/python/">Python</category>
+      <description>用 Pandas 清洗空间属性表，写了个自动化脚本分享下</description>
+    </item>
     <item>
       <title>利用Python构建等时圈</title>
-      <link>http://localhost:1313/posts/b8896e1/</link>
+      <link>https://example.org/posts/b8896e1/</link>
       <pubDate>Tue, 20 Aug 2024 08:13:57 +0800</pubDate>
-      <guid>http://localhost:1313/posts/b8896e1/</guid>
-      <category domain="http://localhost:1313/categories/gis/">GIS</category>
-      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <guid>https://example.org/posts/b8896e1/</guid>
+      <category domain="https://example.org/categories/gis/">GIS</category>
+      <category domain="https://example.org/categories/python/">Python</category>
       <description>&lt;p&gt;等时线表示从特定点在一定时间内可以到达的地理区域。例如，在步行距离的背景下，等时线是城市规划师等专业人士的有用工具，旨在了解特定区域内的可达性和连通性。&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Python批量输出地图，且一直保持底图可见</title>
-      <link>http://localhost:1313/posts/387d48e/</link>
-      <pubDate>Wed, 15 Mar 2023 04:56:26 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/posts/387d48e/</guid>
-      <category domain="http://localhost:1313/categories/python/">Python</category>
-      <category domain="http://localhost:1313/categories/gis/">GIS</category>
-      <description>在固定某几个图层可见情况下，替换其他图层，输出地图。</description>
-    </item>
-    <item>
       <title>Numpy_2</title>
-      <link>http://localhost:1313/posts/numpy_2/bbce8a6/</link>
+      <link>https://example.org/posts/numpy_2/bbce8a6/</link>
       <pubDate>Thu, 15 Dec 2022 09:25:33 +0800</pubDate>
-      <guid>http://localhost:1313/posts/numpy_2/bbce8a6/</guid>
-      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <guid>https://example.org/posts/numpy_2/bbce8a6/</guid>
+      <category domain="https://example.org/categories/python/">Python</category>
       <description>求和，最大值最小值，聚合函数</description>
     </item>
     <item>
       <title>Numpy_1</title>
-      <link>http://localhost:1313/posts/number_pandas1/59c5244/</link>
+      <link>https://example.org/posts/number_pandas1/59c5244/</link>
       <pubDate>Thu, 08 Dec 2022 05:45:52 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/posts/number_pandas1/59c5244/</guid>
-      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <guid>https://example.org/posts/number_pandas1/59c5244/</guid>
+      <category domain="https://example.org/categories/python/">Python</category>
       <description>数组基础，数组索引，数组切片</description>
     </item>
     <item>
       <title>Pandas对象介绍</title>
-      <link>http://localhost:1313/posts/0ef6aba/</link>
+      <link>https://example.org/posts/0ef6aba/</link>
       <pubDate>Sun, 13 Feb 2022 21:38:28 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/posts/0ef6aba/</guid>
-      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <guid>https://example.org/posts/0ef6aba/</guid>
+      <category domain="https://example.org/categories/python/">Python</category>
       <description>Pandas对象介绍</description>
     </item>
     <item>
       <title>城市绿化率分析</title>
-      <link>http://localhost:1313/posts/street_green/e296f9d/</link>
+      <link>https://example.org/posts/street_green/e296f9d/</link>
       <pubDate>Mon, 20 Jul 2020 18:15:34 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/posts/street_green/e296f9d/</guid>
-      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <guid>https://example.org/posts/street_green/e296f9d/</guid>
+      <category domain="https://example.org/categories/python/">Python</category>
       <description>利用OpenCV颜色识别方法，识别街道中的植被覆盖面积</description>
     </item>
     <item>
       <title>Arcpy将文本信息转化为shp文件</title>
-      <link>http://localhost:1313/posts/5ea1002/</link>
+      <link>https://example.org/posts/5ea1002/</link>
       <pubDate>Fri, 06 Mar 2020 05:51:17 +0800</pubDate><author>wangyixuanang@163.com (wangyx)</author>
-      <guid>http://localhost:1313/posts/5ea1002/</guid>
-      <category domain="http://localhost:1313/categories/python/">Python</category>
+      <guid>https://example.org/posts/5ea1002/</guid>
+      <category domain="https://example.org/categories/python/">Python</category>
       <description>将文本文件转化为地理数据文件</description>
     </item>
   </channel>
